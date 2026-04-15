@@ -33,7 +33,7 @@ public:
 int
 main()
 {
-
+    FoodDeliverySystem f; // Create an object of the FoodDeliverySystem Class
     int choice;
 
     do
@@ -51,6 +51,30 @@ main()
         cout << "===========================================\n";
         cout << "Enter your choice: ";
         cin << choice;
-    }
-    return 0;
+
+        switch (choice)
+        {
+        case 1:
+            f.addOrder();
+            break;
+        case 2:
+            f.dispatchOrder();
+            break;
+        case 3:
+            f.undo();
+            break;
+        case 4:
+            f.display();
+            break;
+        case 5:
+            f.search();
+            break;
+        case 6:
+            cout << "\nExiting system...\n";
+            break;
+        default:
+            cout << "\nInvalid Choice!\n"; // Error message for wrong input
+        }
+    } while (choice != 6) // loop continues until user chooses Exit
+        return 0;
 }
