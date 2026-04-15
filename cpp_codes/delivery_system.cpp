@@ -30,10 +30,9 @@ public:
                     void search()
 }
 
-int
-main()
+int main()
 {
-
+    FoodDeliverySystem f;
     int choice;
 
     do
@@ -52,5 +51,7 @@ main()
         cout << "Enter your choice: ";
         cin << choice;
     }
+
+    
     return 0;
 }
