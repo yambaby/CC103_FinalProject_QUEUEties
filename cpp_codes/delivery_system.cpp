@@ -9,29 +9,30 @@ struct Order
     int hr;
 };
 
-class FoodDeliverySystem
-{
-private:
-    // Priority Queue
+class FoodDeliverySystem {
+    private:
+    //Priority Queue
+    
+    //Normal Queue
 
-    // Normal Queue
+    //Stack (Undo)
 
-    // Stack (Undo)
+    public:
 
-public:
     void addOrder()
 
-        void dispatchOrder()
+    void dispatchOrder()
 
-            void undo()
+    void undo()
 
-                void display()
+    void display()
 
-                    void search()
+    void search()
 }
 
-int
-main()
+
+
+int main()
 {
 
     cout << "==========MENU==========";
