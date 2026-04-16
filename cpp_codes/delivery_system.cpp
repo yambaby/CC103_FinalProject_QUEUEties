@@ -2,6 +2,8 @@
 #include <iomanip>
 using namespace std;
 
+#define MAX 100
+
 struct Order
 {
     int id;
@@ -13,26 +15,30 @@ class FoodDeliverySystem
 {
 private:
     // Priority Queue
+    Order priority[MAX];
+    int pSize = 0;
 
     // Normal Queue
+    Order normal[MAX];
+    int front = 0, rear = -1;
 
     // Stack (Undo)
+    Order stack[MAX];
+    int top = -1;
 
 public:
-    void addOrder()
+    void addOrder(){}
 
-        void dispatchOrder()
+        void dispatchOrder(){}
 
-            void undo()
+            void undo(){}
 
-                void display()
+                void display(){}
 
-                    void search()
-}
+                    void search(){}
+};
 
-int
-main()
-{
+int main(){
     FoodDeliverySystem f; // Create an object of the FoodDeliverySystem Class
     int choice;
 
