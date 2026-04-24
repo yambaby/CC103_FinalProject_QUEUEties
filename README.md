@@ -6,5 +6,6 @@
 |----|---------------------------|
 |Buendia, Liam Keiji| Main Programmer|
 |Carandang, Mary Yvonne C.|Documentation Lead|
-|Lindo, Kristal Joy|Documentation|
+|Lindo, Kristal Joy H. |Documentation II|
 |Pasamba, Carl Kendy| Assistant Programmer| 
+
