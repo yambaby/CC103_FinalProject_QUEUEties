@@ -45,7 +45,7 @@ int main(){
     do
     {
         cout << "\n========================================\n";
-        cout << "      FOOD DELIVERY SYSTEM MENU\n           ";
+        cout << "      FOOD DELIVERY MANAGEMENT SYSTEM MENU\n           ";
         cout << "\n========================================\n";
 
         cout << " [1] Add Order\n";
@@ -56,7 +56,7 @@ int main(){
         cout << " [6] Exit\n";
         cout << "===========================================\n";
         cout << "Enter your choice: ";
-        cin << choice;
+        cin >> choice;
 
         switch (choice)
         {
@@ -81,6 +81,6 @@ int main(){
         default:
             cout << "\nInvalid Choice!\n"; // Error message for wrong input
         }
-    } while (choice != 6) // loop continues until user chooses Exit
-        return 0;
+    } while (choice != 6);// loop continues until user chooses Exit
+        return (0);
 }
