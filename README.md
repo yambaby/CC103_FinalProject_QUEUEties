@@ -7,5 +7,8 @@
 |Buendia, Liam Keiji| Main Programmer|
 |Carandang, Mary Yvonne C.|Documentation Lead|
 |Lindo, Kristal Joy H. |Documentation II|
-|Pasamba, Carl Kendy| Assistant Programmer| 
+|Pasamba, Carl Kendy| Assistant Programmer|
+
+## ₊˚ ┊ Acknowledgment
+We sincerely express our gratitude to our instructor for the guidance and support provided throughout the completion of this project. We also extend our appreciation to our classmates and peers for their cooperation and encouragement during the development process
 
