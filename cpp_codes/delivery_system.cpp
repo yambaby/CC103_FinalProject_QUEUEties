@@ -81,6 +81,6 @@ int main(){
         default:
             cout << "\nInvalid Choice!\n"; // Error message for wrong input
         }
-    } while (choice != 6) // loop continues until user chooses Exit
+    } while (choice != 6); // loop continues until user chooses Exit
         return 0;
 }
