@@ -1,4 +1,4 @@
-<h1 align = "center"> ⋆˚🍒𐙚⋆˚ DeliverEase: Delivery Management System ⋆˚🍒𐙚⋆˚ </h1>
+<h1 align = "center"> ⋆˚🍒𐙚⋆˚ DeliverEase: Food Delivery Management System ⋆˚🍒𐙚⋆˚ </h1>
 <h2 align = center> by: ˚.🎀༘⋆ Queueties ˚.🎀༘⋆ </h2>
 
 ## ˖᯽ Project Developers ᯽˖
