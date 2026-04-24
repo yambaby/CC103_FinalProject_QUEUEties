@@ -56,7 +56,7 @@ int main(){
         cout << " [6] Exit\n";
         cout << "===========================================\n";
         cout << "Enter your choice: ";
-        cin << choice;
+        cin >> choice;
 
         switch (choice)
         {
