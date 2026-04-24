@@ -10,7 +10,12 @@
 |Pasamba, Carl Kendy| Assistant Programmer|
 
 ## ‧₊˚ ┊ Acknowledgment
-We sincerely express our gratitude to our instructor for the guidance and support provided throughout the completion of this project. We also extend our appreciation to our classmates and peers for their cooperation and encouragement during the development process.
+We sincerely express our gratitude to our instructor for the guidance, support, and valuable insights provided throughout the development of this project.
+
+We also extend our appreciation to our classmates and peers for their cooperation, encouragement, and shared ideas, which contributed to the improvement of this system.
+
+Lastly, we acknowledge the learning resources and materials that helped us strengthen our understanding of data structures and programming concepts used in this project.
+
 
 
 
