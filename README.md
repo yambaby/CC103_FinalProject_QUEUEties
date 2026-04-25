@@ -2,12 +2,13 @@
 <h2 align = center> by: ˚.🎀༘⋆ Queueties ˚.🎀༘⋆ </h2>
 
 ## ˖᯽ Project Developers ᯽˖
-|Name|Duties and Responsibilities|
+<p align="center"> |Name|Duties and Responsibilities|
 |----|---------------------------|
 |Buendia, Liam Keiji| Main Programmer|
 |Carandang, Mary Yvonne C.|Documentation Lead|
 |Lindo, Kristal Joy H.|Documentation II|
 |Pasamba, Carl Kendy| Assistant Programmer|
+</p>
 
 ## ‧₊˚ ┊ Acknowledgment
 We sincerely express our gratitude to our instructor for the guidance, support, and valuable insights provided throughout the development of this project.
