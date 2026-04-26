@@ -1,6 +1,25 @@
 <h1 align = "center"> ⋆˚🚚⋆˚ DeliverEase: Food Delivery Management System ⋆˚🚚⋆˚ </h1>
 <h2 align = center> by: ˚.📦🎀༘⋆ Queueties ˚.📦🎀༘⋆ </h2>
 
+## 🧩 Problem Description
+
+### ❓ What problem are you solving?
+In real-world food delivery services, managing multiple customer orders at the same time is very important. Without a proper and efficient system, restaurants may experience the following problems:
+
+- ⏱️ Delayed deliveries due to poor order prioritization  
+- 📋 Orders are not organized properly  
+- 🔄 No easy way to undo incorrect orders  
+- 🔍 Difficulty in tracking and searching orders  
+
+### 💡 Proposed Solution
+This system uses data structures such as Queue, Priority Queue, and Stack to efficiently organize and manage food delivery orders. It prioritizes urgent deliveries, maintains proper order flow, and provides an undo feature for correcting mistakes.
+
+The system ensures:
+- ⚡ Faster processing of urgent orders  
+- 📋 Organized handling of normal orders  
+- ↩️ Undo functionality for error correction  
+- 🔍 Easy searching and clear display of orders  
+
 ## ˖᯽ Project Developers ᯽˖
 |Name|Duties and Responsibilities|
 |----|---------------------------|
