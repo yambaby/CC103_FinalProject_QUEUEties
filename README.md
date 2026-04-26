@@ -1,5 +1,5 @@
-<h1 align = "center"> ⋆˚🍒𐙚⋆˚ DeliverEase: Food Delivery Management System ⋆˚🍒𐙚⋆˚ </h1>
-<h2 align = center> by: ˚.🎀༘⋆ Queueties ˚.🎀༘⋆ </h2>
+<h1 align = "center"> ⋆˚🚚⋆˚ DeliverEase: Food Delivery Management System ⋆˚🚚⋆˚ </h1>
+<h2 align = center> by: ˚.📦🎀༘⋆ Queueties ˚.📦🎀༘⋆ </h2>
 
 ## ˖᯽ Project Developers ᯽˖
 |Name|Duties and Responsibilities|
