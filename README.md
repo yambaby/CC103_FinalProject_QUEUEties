@@ -77,7 +77,6 @@ The system ensures:
 
 ### ✅ Choices Made:
 - Used fixed-size arrays (MAX = 100) for all data structures
-
   Arrays are used to implement the Priority Queue, Normal Queue, and Stack, providing simple implementation and   fast data access without dynamic memory.  
 
 ### ⚖️ Trade-offs:
