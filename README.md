@@ -49,7 +49,8 @@ The system ensures:
 ### ↩️ Undo Order
 - Pop last order from Stack (top--)
 - Search the order ID in Priority Queue:
-  - If found, remove it by shifting elements left and decrease pSize  
+  - If found, remove it by shifting elements left and decrease pSize
+- Else search in Normal Queue:  
 
 ### 🔍 Search Order
 
