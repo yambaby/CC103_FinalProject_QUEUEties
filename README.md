@@ -32,6 +32,7 @@ The system ensures:
 |Lindo, Kristal Joy H.|Documentation II|
 |Pasamba, Carl Kendy| Assistant Programmer|
 
+
 ## ‧₊˚ ┊ Acknowledgment
 We sincerely express our gratitude to our instructor for the guidance, support, and valuable insights provided throughout the development of this project.
 
