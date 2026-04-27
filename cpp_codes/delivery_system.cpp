@@ -27,9 +27,24 @@ private:
     int top = -1;
 
 public:
-    void addOrder(){}
+    void addOrder() {
+        Order o; //Create a new Order Object
 
-        void dispatchOrder(){}
+        cout << "Enter ID: ";
+        cin >> o.id;
+        cin.ignore(); //Clear Input buffer
+
+        cout << "Enter Name: ";
+        getline(cin, o.name);
+
+        cout << "Enter Hours: ";
+        cin >> o.hr; // get number of hours
+
+        
+            
+    }
+
+     void dispatchOrder(){}
 
             void undo(){}
 
