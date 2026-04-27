@@ -24,6 +24,8 @@ The system ensures:
 
 ## ⚙️ Algorithm Explanation
 
+## 🔁 Iterative vs Recursive Comparison
+
 ## ˖᯽ Project Developers ᯽˖
 |Name|Duties and Responsibilities|
 |----|---------------------------|
