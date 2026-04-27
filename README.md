@@ -57,7 +57,8 @@ The system ensures:
 ### 🔍 Search Order
 - Input Order ID
 - Search in Priority Queue from index 0 to pSize-1
-- Display whether the order is found in Priority or Normal Queue  
+- Display whether the order is found in Priority or Normal Queue
+- If not found in both, display "Order not found"  
 
 ### 📊 Display Orders
 
