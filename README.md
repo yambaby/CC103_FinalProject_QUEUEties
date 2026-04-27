@@ -21,7 +21,7 @@ The system ensures:
 - 🔍 Easy searching and clear display of orders 
 
 ## 🧱 Data Structures Used
-# 1️. Priority Queue
+### 1️. Priority Queue
 - What it is:
 A special type of queue where elements are processed based on priority instead of their arrival order.
 
