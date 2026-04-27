@@ -88,7 +88,7 @@ The system ensures:
 - Used Stack (LIFO) with top pointer for Undo functionality
   Each added order is pushed onto the stack, allowing the system to undo the most recent order using top--.  
 
-- Used array shifting for deletion operations
+- Used array shifting for deletion operations  
   Elements are shifted left when removing orders (during dispatch or undo) to maintain the correct structure of the arrays.  
 
 - Console-based interface with ANSI color codes  
