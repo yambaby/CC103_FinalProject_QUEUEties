@@ -41,7 +41,8 @@ The system ensures:
    - Shift all remaining elements left
    - Decrease pSize
 - Else if Normal Queue is not empty (front <= rear):
-   - Display and deliver the first element in Normal Queue (normal[front])  
+   - Display and deliver the first element in Normal Queue (normal[front])
+   - Increment front  
 
 ### ↩️ Undo Order
 
