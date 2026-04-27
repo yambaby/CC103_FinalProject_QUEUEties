@@ -20,6 +20,8 @@ The system ensures:
 - ↩️ Undo functionality for error correction  
 - 🔍 Easy searching and clear display of orders 
 
+## 🧱 Data Structures Used
+
 ## ˖᯽ Project Developers ᯽˖
 |Name|Duties and Responsibilities|
 |----|---------------------------|
