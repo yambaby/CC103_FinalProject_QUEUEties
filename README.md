@@ -62,7 +62,8 @@ The system ensures:
 
 ### 📊 Display Orders
 - Display all elements in Priority Queue (from 0 to pSize-1)
-- Display all elements in Normal Queue (from front to rear)  
+- Display all elements in Normal Queue (from front to rear)
+- Show order ID, name, and hours for each  
 
 ### 🚪 Exit System
 
