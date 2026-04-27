@@ -22,6 +22,8 @@ The system ensures:
 
 ## 🧱 Data Structures Used
 
+## ⚙️ Algorithm Explanation
+
 ## ˖᯽ Project Developers ᯽˖
 |Name|Duties and Responsibilities|
 |----|---------------------------|
