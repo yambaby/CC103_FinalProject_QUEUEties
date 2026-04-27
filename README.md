@@ -39,7 +39,8 @@ The system ensures:
 - If Priority Queue is not empty (pSize > 0):
    - Display and deliver the first element of Priority Queue (priority[0])
    - Shift all remaining elements left
-   - Decrease pSize  
+   - Decrease pSize
+- Else if Normal Queue is not empty (front <= rear):  
 
 ### ↩️ Undo Order
 
