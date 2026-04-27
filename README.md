@@ -41,6 +41,8 @@ The system ensures:
 
 ### 🔍 Search Order
 
+### 📊 Display Orders
+
 ## 🔁 Iterative vs Recursive Comparison
 
 ## 🎨 Design Decisions
