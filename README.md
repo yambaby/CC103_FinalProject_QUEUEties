@@ -91,7 +91,8 @@ The system ensures:
 - Used array shifting for deletion operations
   Elements are shifted left when removing orders (during dispatch or undo) to maintain the correct structure of the arrays.  
 
-- Console-based interface with ANSI color codes  
+- Console-based interface with ANSI color codes
+  Colors (RED, GREEN, BLUE) are used to highlight system messages, improving readability and user experience.  
 
 ### ⚖️ Trade-offs:
 
