@@ -36,7 +36,8 @@ The system ensures:
   - Push order to Stack (for undo functionality)
 
 ### 🚚 Dispatch Order
-- If Priority Queue is not empty (pSize > 0):  
+- If Priority Queue is not empty (pSize > 0):
+   - Display and deliver the first element of Priority Queue (priority[0])  
 
 ### ↩️ Undo Order
 
