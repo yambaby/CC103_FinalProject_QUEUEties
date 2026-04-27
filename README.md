@@ -27,6 +27,14 @@ The system ensures:
 ### 📝 Step-by-Step Logic
 
 ### ➕ Add Order
+- Input order details (ID, Name, Hours)  
+- If hours ≤ 5:  
+  - Add to Priority Queue array  
+  - Insert then sort Priority Queue using nested loops based on hr (shortest time first)  
+- Else:  
+  - Add order to Normal Queue (FIFO using rear++)  
+  - Push order to Stack (for undo functionality)  
+
 
 ## 🔁 Iterative vs Recursive Comparison
 
