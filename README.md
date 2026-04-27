@@ -42,7 +42,8 @@ The system ensures:
    - Decrease pSize
 - Else if Normal Queue is not empty (front <= rear):
    - Display and deliver the first element in Normal Queue (normal[front])
-   - Increment front  
+   - Increment front
+- Else:  
 
 ### ↩️ Undo Order
 
