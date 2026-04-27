@@ -26,6 +26,8 @@ The system ensures:
 
 ### 📝 Step-by-Step Logic
 
+### ➕ Add Order
+
 ## 🔁 Iterative vs Recursive Comparison
 
 ## 🎨 Design Decisions
