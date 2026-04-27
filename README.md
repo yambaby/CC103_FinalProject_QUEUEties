@@ -68,7 +68,8 @@ The system ensures:
 ### 🚪 Exit System
 - User selects option [6] Exit
 - Program executes case 6 and displays "Exiting system..."
-- Loop condition while(choice != 6) ends execution    
+- Loop condition while(choice != 6) ends execution
+- Program terminates safely   
   
 ## 🔁 Iterative vs Recursive Comparison
 
