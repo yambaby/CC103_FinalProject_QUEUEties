@@ -33,7 +33,9 @@ The system ensures:
   - Insert then sort Priority Queue using nested loops based on hr (shortest time first)  
 - Else:  
   - Add order to Normal Queue (FIFO using rear++)  
-  - Push order to Stack (for undo functionality)  
+  - Push order to Stack (for undo functionality)
+
+### 🚚 Dispatch Order
 
 ## 🔁 Iterative vs Recursive Comparison
 
