@@ -39,6 +39,8 @@ The system ensures:
 
 ### ↩️ Undo Order
 
+### 🔍 Search Order
+
 ## 🔁 Iterative vs Recursive Comparison
 
 ## 🎨 Design Decisions
