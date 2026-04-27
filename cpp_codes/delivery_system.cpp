@@ -40,6 +40,21 @@ public:
         cout << "Enter Hours: ";
         cin >> o.hr; // get number of hours
 
+        //Check if order should go to Priority Queue
+        if (o.hr <=5) {
+            priority[pSize++] = o; // Add order to priority queue
+
+            //Sort priority queue based on shortest hours (ascending)
+            for (int i = 0; i < pSize - 1; i++) {
+                for (int j = i + 1; j < pSize; j++) {
+                    if (priority[j].hr < priority[i].hr {
+                        swap(priority[i],priority[j]); // Swap if smaller value found
+                    }
+                }
+            }
+                        
+                
+
         
             
     }
