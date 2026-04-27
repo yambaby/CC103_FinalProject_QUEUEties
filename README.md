@@ -84,7 +84,9 @@ The system ensures:
 
 - Applied FIFO logic for Normal Queue using front and rear indices
 
-- Used Stack (LIFO) with top pointer for Undo functionality  
+- Used Stack (LIFO) with top pointer for Undo functionality
+
+- Used array shifting for deletion operations  
 
 - Console-based interface with ANSI color codes  
 
