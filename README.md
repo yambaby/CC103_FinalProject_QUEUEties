@@ -79,8 +79,8 @@ The system ensures:
 - Used fixed-size arrays (MAX = 100) for all data structures  
   Arrays are used to implement the Priority Queue, Normal Queue, and Stack, providing simple implementation and fast data access without dynamic memory.
 
-- Implemented Priority Queue using manual sorting (nested loops)
-    Orders with hr ≤ 5 are stored in the priority array and sorted using a nested loop comparison to ensure the shortest delivery time is always processed first.
+- Implemented Priority Queue using manual sorting (nested loops)  
+  Orders with hr ≤ 5 are stored in the priority array and sorted using a nested loop comparison to ensure the shortest delivery time is always processed first.  
 
 - Applied FIFO logic for Normal Queue using front and rear indices  
   Normal orders are processed in the order they arrive by incrementing rear during insertion and front during dispatch.  
