@@ -75,6 +75,8 @@ The system ensures:
 
 ## 🎨 Design Decisions
 
+### ✅ Choices Made:
+
 ## ˖᯽ Project Developers ᯽˖
 |Name|Duties and Responsibilities|
 |----|---------------------------|
