@@ -24,6 +24,8 @@ The system ensures:
 ### 1️. Priority Queue
 #### - What it is:
 - A special type of queue where elements are processed based on priority instead of their arrival order.
+#### - Why used:
+- Orders with short delivery time ≤ 5 hours are treated as urgent and are processed first to ensure faster delivery. 
 
 ## ⚙️ Algorithm Explanation
 
