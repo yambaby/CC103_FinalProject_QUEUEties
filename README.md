@@ -40,7 +40,8 @@ The system ensures:
    - Display and deliver the first element of Priority Queue (priority[0])
    - Shift all remaining elements left
    - Decrease pSize
-- Else if Normal Queue is not empty (front <= rear):  
+- Else if Normal Queue is not empty (front <= rear):
+   - Display and deliver the first element in Normal Queue (normal[front])  
 
 ### ↩️ Undo Order
 
