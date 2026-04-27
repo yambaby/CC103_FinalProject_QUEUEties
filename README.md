@@ -43,6 +43,8 @@ The system ensures:
 
 ### 📊 Display Orders
 
+### 🚪 Exit System
+
 ## 🔁 Iterative vs Recursive Comparison
 
 ## 🎨 Design Decisions
