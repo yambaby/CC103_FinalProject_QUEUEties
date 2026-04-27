@@ -86,6 +86,7 @@ The system ensures:
   Normal orders are processed in the order they arrive by incrementing rear during insertion and front during dispatch.  
 
 - Used Stack (LIFO) with top pointer for Undo functionality
+  Each added order is pushed onto the stack, allowing the system to undo the most recent order using top--.  
 
 - Used array shifting for deletion operations  
 
