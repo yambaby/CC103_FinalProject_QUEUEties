@@ -43,7 +43,8 @@ The system ensures:
 - Else if Normal Queue is not empty (front <= rear):
    - Display and deliver the first element in Normal Queue (normal[front])
    - Increment front
-- Else:  
+- Else:
+   - Display "No orders"  
 
 ### ↩️ Undo Order
 
