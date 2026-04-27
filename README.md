@@ -24,6 +24,8 @@ The system ensures:
 
 ## ⚙️ Algorithm Explanation
 
+### 📝 Step-by-Step Logic
+
 ## 🔁 Iterative vs Recursive Comparison
 
 ## 🎨 Design Decisions
