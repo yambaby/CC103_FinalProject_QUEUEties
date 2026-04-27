@@ -47,7 +47,8 @@ The system ensures:
    - Display "No orders"  
 
 ### ↩️ Undo Order
-- Pop last order from Stack (top--)  
+- Pop last order from Stack (top--)
+- Search the order ID in Priority Queue:  
 
 ### 🔍 Search Order
 
