@@ -26,6 +26,8 @@ The system ensures:
 
 ## 🔁 Iterative vs Recursive Comparison
 
+## 🎨 Design Decisions
+
 ## ˖᯽ Project Developers ᯽˖
 |Name|Duties and Responsibilities|
 |----|---------------------------|
