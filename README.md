@@ -67,6 +67,7 @@ The system ensures:
 
 ### 🚪 Exit System
 - User selects option [6] Exit
+- Program executes case 6 and displays "Exiting system..."  
   
 ## 🔁 Iterative vs Recursive Comparison
 
