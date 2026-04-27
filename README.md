@@ -37,6 +37,8 @@ The system ensures:
 
 ### 🚚 Dispatch Order
 
+### ↩️ Undo Order
+
 ## 🔁 Iterative vs Recursive Comparison
 
 ## 🎨 Design Decisions
