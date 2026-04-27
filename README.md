@@ -61,6 +61,7 @@ The system ensures:
 - If not found in both, display "Order not found"  
 
 ### 📊 Display Orders
+- Display all elements in Priority Queue (from 0 to pSize-1)  
 
 ### 🚪 Exit System
 
