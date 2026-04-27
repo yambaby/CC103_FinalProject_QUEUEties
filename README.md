@@ -22,8 +22,8 @@ The system ensures:
 
 ## 🧱 Data Structures Used
 ### 1️. Priority Queue
-- What it is:
-A special type of queue where elements are processed based on priority instead of their arrival order.
+#### - What it is:
+- A special type of queue where elements are processed based on priority instead of their arrival order.
 
 ## ⚙️ Algorithm Explanation
 
