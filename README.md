@@ -38,7 +38,8 @@ The system ensures:
 ### 🚚 Dispatch Order
 - If Priority Queue is not empty (pSize > 0):
    - Display and deliver the first element of Priority Queue (priority[0])
-   - - Shift all remaining elements left  
+   - Shift all remaining elements left
+   - Decrease pSize  
 
 ### ↩️ Undo Order
 
