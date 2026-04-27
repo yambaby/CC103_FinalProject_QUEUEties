@@ -86,6 +86,7 @@ The system ensures:
 
 - Used Stack (LIFO) with top pointer for Undo functionality  
 
+- Console-based interface with ANSI color codes  
 
 ### ⚖️ Trade-offs:
 
