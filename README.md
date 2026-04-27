@@ -82,7 +82,9 @@ The system ensures:
 - Implemented Priority Queue using manual sorting (nested loops)
     Orders with hr ≤ 5 are stored in the priority array and sorted using a nested loop comparison to ensure the shortest delivery time is always processed first.
 
-- Applied FIFO logic for Normal Queue using front and rear indices  
+- Applied FIFO logic for Normal Queue using front and rear indices
+
+- Used Stack (LIFO) with top pointer for Undo functionality  
 
 
 ### ⚖️ Trade-offs:
