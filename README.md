@@ -51,7 +51,8 @@ The system ensures:
 - Search the order ID in Priority Queue:
   - If found, remove it by shifting elements left and decrease pSize
 - Else search in Normal Queue:
-  - If found, remove it by shifting elements left and decrease rear  
+  - If found, remove it by shifting elements left and decrease rear
+- Display confirmation message for removal  
 
 ### 🔍 Search Order
 
