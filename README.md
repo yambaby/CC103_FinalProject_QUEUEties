@@ -47,6 +47,7 @@ The system ensures:
    - Display "No orders"  
 
 ### ↩️ Undo Order
+- Pop last order from Stack (top--)  
 
 ### 🔍 Search Order
 
