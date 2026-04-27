@@ -50,7 +50,8 @@ The system ensures:
 - Pop last order from Stack (top--)
 - Search the order ID in Priority Queue:
   - If found, remove it by shifting elements left and decrease pSize
-- Else search in Normal Queue:  
+- Else search in Normal Queue:
+  - If found, remove it by shifting elements left and decrease rear  
 
 ### 🔍 Search Order
 
