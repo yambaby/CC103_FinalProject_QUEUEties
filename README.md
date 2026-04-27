@@ -55,7 +55,8 @@ The system ensures:
 - Display confirmation message for removal  
 
 ### 🔍 Search Order
-- Input Order ID  
+- Input Order ID
+- Search in Priority Queue from index 0 to pSize-1  
 
 ### 📊 Display Orders
 
