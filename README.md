@@ -66,7 +66,8 @@ The system ensures:
 - Show order ID, name, and hours for each  
 
 ### 🚪 Exit System
-
+- User selects option [6] Exit
+  
 ## 🔁 Iterative vs Recursive Comparison
 
 ## 🎨 Design Decisions
