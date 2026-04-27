@@ -33,11 +33,68 @@ The system ensures:
   - Insert then sort Priority Queue using nested loops based on hr (shortest time first)  
 - Else:  
   - Add order to Normal Queue (FIFO using rear++)  
-  - Push order to Stack (for undo functionality)  
+  - Push order to Stack (for undo functionality)
 
+### 🚚 Dispatch Order
+- If Priority Queue is not empty (pSize > 0):
+   - Display and deliver the first element of Priority Queue (priority[0])
+   - Shift all remaining elements left
+   - Decrease pSize
+- Else if Normal Queue is not empty (front <= rear):
+   - Display and deliver the first element in Normal Queue (normal[front])
+   - Increment front
+- Else:
+   - Display "No orders"  
+
+### ↩️ Undo Order
+- Pop last order from Stack (top--)
+- Search the order ID in Priority Queue:
+  - If found, remove it by shifting elements left and decrease pSize
+- Else search in Normal Queue:
+  - If found, remove it by shifting elements left and decrease rear
+- Display confirmation message for removal  
+
+### 🔍 Search Order
+- Input Order ID
+- Search in Priority Queue from index 0 to pSize-1
+- Display whether the order is found in Priority or Normal Queue
+- If not found in both, display "Order not found"  
+
+### 📊 Display Orders
+- Display all elements in Priority Queue (from 0 to pSize-1)
+- Display all elements in Normal Queue (from front to rear)
+- Show order ID, name, and hours for each  
+
+### 🚪 Exit System
+- User selects option [6] Exit
+- Program executes case 6 and displays "Exiting system..."
+- Loop condition while(choice != 6) ends execution
+- Program terminates safely   
+  
 ## 🔁 Iterative vs Recursive Comparison
 
 ## 🎨 Design Decisions
+
+### ✅ Choices Made:
+- Used fixed-size arrays (MAX = 100) for all data structures  
+  Arrays are used to implement the Priority Queue, Normal Queue, and Stack, providing simple implementation and fast data access without dynamic memory.
+
+- Implemented Priority Queue using manual sorting (nested loops)  
+  Orders with hr ≤ 5 are stored in the priority array and sorted using a nested loop comparison to ensure the shortest delivery time is always processed first.  
+
+- Applied FIFO logic for Normal Queue using front and rear indices  
+  Normal orders are processed in the order they arrive by incrementing rear during insertion and front during dispatch.  
+
+- Used Stack (LIFO) with top pointer for Undo functionality  
+  Each added order is pushed onto the stack, allowing the system to undo the most recent order using top--.  
+
+- Used array shifting for deletion operations  
+  Elements are shifted left when removing orders (during dispatch or undo) to maintain the correct structure of the arrays.  
+
+- Console-based interface with ANSI color codes  
+  Colors (RED, GREEN, BLUE) are used to highlight system messages, improving readability and user experience.   
+
+### ⚖️ Trade-offs:
 
 ## ˖᯽ Project Developers ᯽˖
 |Name|Duties and Responsibilities|
