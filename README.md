@@ -77,6 +77,8 @@ The system ensures:
 
 ### ✅ Choices Made:
 
+### ⚖️ Trade-offs:
+
 ## ˖᯽ Project Developers ᯽˖
 |Name|Duties and Responsibilities|
 |----|---------------------------|
