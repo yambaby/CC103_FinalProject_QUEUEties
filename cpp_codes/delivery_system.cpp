@@ -29,13 +29,36 @@ private:
 public:
     void addOrder(){}
 
-        void dispatchOrder(){}
+    void dispatchOrder(){}
 
-            void undo(){}
+    void undo(){}
 
-                void display(){}
+    void display(){}
 
-                    void search(){}
+    void search(){
+        int id;
+        cout << "Enter ID to search: ";
+        cin >> id;
+
+        // Priority search
+        for (int i = 0; i < pSize; i++) {
+            if (priority[i].id == id) {
+                cout << "\nFound in PRIORITY QUEUE!\n";
+                return;
+            }
+        }
+
+        // Normal search
+        for (int i = front; i <= rear; i++) {
+            if (normal[i].id == id) {
+                cout << "\nFound in NORMAL QUEUE!\n";
+                return;
+            }
+        }
+
+        cout << "\nOrder not found.\n";
+    
+        }
 };
 
 int main(){
@@ -56,7 +79,7 @@ int main(){
         cout << " [6] Exit\n";
         cout << "===========================================\n";
         cout << "Enter your choice: ";
-        cin << choice;
+        cin >> choice;
 
         switch (choice)
         {
@@ -81,6 +104,6 @@ int main(){
         default:
             cout << "\nInvalid Choice!\n"; // Error message for wrong input
         }
-    } while (choice != 6) // loop continues until user chooses Exit
+    } while (choice != 6); // loop continues until user chooses Exit
         return 0;
 }
