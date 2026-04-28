@@ -27,12 +27,13 @@ private:
     int top = -1;
 
 public:
-    void addOrder() {
-        Order o; //Create a new Order Object
+    void addOrder()
+    {
+        Order o; // Create a new Order Object
 
         cout << "Enter ID: ";
         cin >> o.id;
-        cin.ignore(); //Clear Input buffer
+        cin.ignore(); // Clear Input buffer
 
         cout << "Enter Name: ";
         getline(cin, o.name);
@@ -40,77 +41,82 @@ public:
         cout << "Enter Hours: ";
         cin >> o.hr; // get number of hours
 
-        //Check if order should go to Priority Queue
-        if (o.hr <=5) {
+        // Check if order should go to Priority Queue
+        if (o.hr <= 5)
+        {
             priority[pSize++] = o; // Add order to priority queue
 
-            //Sort priority queue based on shortest hours (ascending)
-            for (int i = 0; i < pSize - 1; i++) {
-                for (int j = i + 1; j < pSize; j++) {
+            // Sort priority queue based on shortest hours (ascending)
+            for (int i = 0; i < pSize - 1; i++)
+            {
+                for (int j = i + 1; j < pSize; j++)
+                {
                     if (priority[j].hr < priority[i].hr {
-                        swap(priority[i],priority[j]); // Swap if smaller value found
+                        swap(priority[i], priority[j]); // Swap if smaller value found
                     }
                 }
             }
-                        
-                
-
-        
-            
-    }
-
-     void dispatchOrder(){}
-
-            void undo(){}
-
-                void display(){}
-
-                    void search(){}
-};
-
-int main(){
-    FoodDeliverySystem f; // Create an object of the FoodDeliverySystem Class
-    int choice;
-
-    do
-    {
-        cout << "\n========================================\n";
-        cout << "      FOOD DELIVERY MANAGEMENT SYSTEM MENU\n           ";
-        cout << "\n========================================\n";
-
-        cout << " [1] Add Order\n";
-        cout << " [2] Dispatch Order\n";
-        cout << " [3] Undo Last Order\n";
-        cout << " [4] Display Orders\n";
-        cout << " [5] Search Order\n";
-        cout << " [6] Exit\n";
-        cout << "===========================================\n";
-        cout << "Enter your choice: ";
-        cin >> choice;
-
-        switch (choice)
-        {
-        case 1:
-            f.addOrder();
-            break;
-        case 2:
-            f.dispatchOrder();
-            break;
-        case 3:
-            f.undo();
-            break;
-        case 4:
-            f.display();
-            break;
-        case 5:
-            f.search();
-            break;
-        case 6:
-            cout << "\nExiting system...\n";
-            break;
-        default:
-            cout << "\nInvalid Choice!\n"; // Error message for wrong input
         }
-    } while (choice != 6);// loop continues until user chooses Exit
-        return (0);
-}
+        // if not priority, add to Normal Queue
+
+        else
+        {
+            normal[++rear] = o; // insert at the end of the normal queue
+        }
+
+        void dispatchOrder() {}
+
+        void undo() {}
+
+        void display() {}
+
+        void search() {}
+    };
+
+    int main()
+    {
+        FoodDeliverySystem f; // Create an object of the FoodDeliverySystem Class
+        int choice;
+
+        do
+        {
+            cout << "\n========================================\n";
+            cout << "      FOOD DELIVERY MANAGEMENT SYSTEM MENU\n           ";
+            cout << "\n========================================\n";
+
+            cout << " [1] Add Order\n";
+            cout << " [2] Dispatch Order\n";
+            cout << " [3] Undo Last Order\n";
+            cout << " [4] Display Orders\n";
+            cout << " [5] Search Order\n";
+            cout << " [6] Exit\n";
+            cout << "===========================================\n";
+            cout << "Enter your choice: ";
+            cin >> choice;
+
+            switch (choice)
+            {
+            case 1:
+                f.addOrder();
+                break;
+            case 2:
+                f.dispatchOrder();
+                break;
+            case 3:
+                f.undo();
+                break;
+            case 4:
+                f.display();
+                break;
+            case 5:
+                f.search();
+                break;
+            case 6:
+                cout << "\nExiting system...\n";
+                break;
+            default:
+                cout << "\nInvalid Choice!\n"; // Error message for wrong input
+            }
+        } while (choice != 6); // loop continues until user chooses Exit
+        return 0;
+    }
