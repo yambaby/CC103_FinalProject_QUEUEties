@@ -100,6 +100,8 @@ The system ensures:
   Colors (RED, GREEN, BLUE) are used to highlight system messages, improving readability and user experience.   
 
 ### ⚖️ Trade-offs:
+<h1 align = "center"> ⋆˚🚚⋆˚ DeliverEase: Delivery Management System ⋆˚🚚⋆˚ </h1>
+<h2 align = center> by: ˚.📦🎀༘⋆ Queueties ˚.📦🎀༘⋆ </h2>
 
 ## ˖᯽ Project Developers ᯽˖
 |Name|Duties and Responsibilities|
@@ -116,11 +118,3 @@ We sincerely express our gratitude to our instructor for the guidance, support, 
 We also extend our appreciation to our classmates and peers for their cooperation, encouragement, and shared ideas, which contributed to the improvement of this system.
 
 Lastly, we acknowledge the learning resources and materials that helped us strengthen our understanding of data structures and programming concepts used in this project.
-
-
-
-
-
-
-
-
