@@ -64,7 +64,12 @@ public:
             normal[++rear] = o; // insert at the end of the normal queue
         }
 
-        void dispatchOrder() {}
+        cout << "\nOrder Added Successfully!\n"
+
+            void
+            dispatchOrder()
+        {
+        }
 
         void undo() {}
 
@@ -118,5 +123,6 @@ public:
                 cout << "\nInvalid Choice!\n"; // Error message for wrong input
             }
         } while (choice != 6); // loop continues until user chooses Exit
+
         return 0;
     }
