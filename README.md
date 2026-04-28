@@ -128,10 +128,10 @@ The ```Order``` structure stores the details of each order:
 ## ˖᯽ Project Developers ᯽˖
 |Name|Duties and Responsibilities|
 |----|---------------------------|
-|Buendia, Liam Keiji| Main Programmer|
-|Carandang, Mary Yvonne C.|Documentation Lead|
-|Lindo, Kristal Joy H.|Documentation II|
-|Pasamba, Carl Kendy| Assistant Programmer|
+|[Buendia, Liam Keiji](https://github.com/yambaby)| Main Programmer|
+|[Carandang, Mary Yvonne C.](https://github.com/maryyvonnecarandang-dev)|Documentation Lead|
+|[Lindo, Kristal Joy H.](https://github.com/Kristal29)|Documentation II|
+|[Pasamba, Carl Kendy](https://github.com/kendyow)| Assistant Programmer|
 
 
 ## ‧₊˚ ┊ Acknowledgment
