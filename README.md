@@ -103,6 +103,28 @@ The system ensures:
 <h1 align = "center"> ⋆˚🚚⋆˚ DeliverEase: Delivery Management System ⋆˚🚚⋆˚ </h1>
 <h2 align = center> by: ˚.📦🎀༘⋆ Queueties ˚.📦🎀༘⋆ </h2>
 
+## 📦 Order Structure
+
+```cpp
+struct Order {
+    int id;
+    string name;
+    int hr;
+};
+
+```
+
+The ```Order``` structure stores the details of each order:
+
+```id``` → Unique order number
+```name``` → Customer name
+```hr (hours)``` → Delivery time
+
+📌 If hr ≤ 5 → ```Priority Order```
+📌 If hr > 5 → ```Normal Order```
+
+
+
 ## ˖᯽ Project Developers ᯽˖
 |Name|Duties and Responsibilities|
 |----|---------------------------|
