@@ -140,8 +140,6 @@ void addOrder() {
   Colors (RED, GREEN, BLUE) are used to highlight system messages, improving readability and user experience.   
 
 ### ⚖️ Trade-offs:
-<h1 align = "center"> ⋆˚🚚⋆˚ DeliverEase: Delivery Management System ⋆˚🚚⋆˚ </h1>
-<h2 align = center> by: ˚.📦🎀༘⋆ Queueties ˚.📦🎀༘⋆ </h2>
 
 ## 📦 Order Structure
 
