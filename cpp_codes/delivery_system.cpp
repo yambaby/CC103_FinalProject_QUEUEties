@@ -51,7 +51,7 @@ public:
             {
                 for (int j = i + 1; j < pSize; j++)
                 {
-                    if (priority[j].hr < priority[i].hr {
+                    if (priority[j].hr < priority[i].hr) {
                         swap(priority[i], priority[j]); // Swap if smaller value found
                     }
                 }
@@ -64,18 +64,38 @@ public:
             normal[++rear] = o; // insert at the end of the normal queue
         }
 
-        cout << "\nOrder Added Successfully!\n"
+        cout << "\nOrder Added Successfully!\n";
+    }
 
-            void
-            dispatchOrder()
-        {
-        }
+        void dispatchOrder(){}
 
         void undo() {}
 
         void display() {}
 
-        void search() {}
+        void search() {
+            int id;
+            cout << "Enter ID to search: ";
+            cin >> id;
+
+            // PRIORITY SEARCH
+            for (int i = 0; i < pSize; i++){
+                if (priority[i].id == id){
+                    cout << "\nFound in PRIORITY QUEUE!\n";
+                    return;
+                }
+            }
+
+            //NORMAL SEARCH
+            for (int i = front; i <= rear; i++){
+                if (normal[i].id == id) {
+                    cout << "\nFound in NORMAL QUEUE!\n";
+                    return;
+                }
+            }
+
+            cout << "\nOrder not found.\n";
+        }
     };
 
     int main()
