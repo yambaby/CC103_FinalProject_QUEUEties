@@ -31,14 +31,54 @@ The system ensures:
 
 ### 📝 Step-by-Step Logic
 
-### ➕ Add Order
+### ➕ ```addOrder()```
+
+```cpp
+void addOrder() {
+        Order o;
+
+        cout << "Enter ID: ";
+        cin >> o.id;
+        cin.ignore();
+
+        cout << "Enter Name: ";
+        getline(cin, o.name);
+
+        cout << "Enter Hours: ";
+        cin >> o.hr;
+
+        // Priority Queue
+        if (o.hr <= 5) {
+            priority[pSize++] = o;
+
+            // Sort by shortest time
+            for (int i = 0; i < pSize - 1; i++) {
+                for (int j = i + 1; j < pSize; j++) {
+                    if (priority[j].hr < priority[i].hr) {
+                        swap(priority[i], priority[j]);
+                    }
+                }
+            }
+        }
+        // Normal Queue
+        else {
+            normal[++rear] = o;
+        }
+
+        // Push to stack
+        stack[++top] = o;
+
+        cout << GREEN << "\nOrder Added Successfully!\n" << RESET;
+    }
+
+```
 - Input order details (ID, Name, Hours)  
-- If hours ≤ 5:  
-  - Add to Priority Queue array  
-  - Insert then sort Priority Queue using nested loops based on hr (shortest time first)  
+- If **hours ≤ 5:**  
+  - Add to **Priority Queue** array  
+  - Insert then sort Priority Queue using nested loops based on ```hr``` (shortest time first)  
 - Else:  
-  - Add order to Normal Queue (FIFO using rear++)  
-  - Push order to Stack (for undo functionality)
+  - Add order to **Normal Queue** (FIFO using rear++)  
+  - Push order to **Stack** (for undo functionality)
 
 ### 🚚 Dispatch Order
 - If Priority Queue is not empty (pSize > 0):
