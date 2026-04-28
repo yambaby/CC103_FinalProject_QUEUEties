@@ -21,19 +21,64 @@ The system ensures:
 - 🔍 Easy searching and clear display of orders 
 
 ## 🧱 Data Structures Used
+### 1️. Priority Queue
+#### - What it is:
+- A special type of queue where elements are processed based on priority instead of their arrival order.
+#### - Why used:
+- Orders with short delivery time ≤ 5 hours are treated as urgent and are processed first to ensure faster delivery. 
 
 ## ⚙️ Algorithm Explanation
 
 ### 📝 Step-by-Step Logic
 
-### ➕ Add Order
+### ➕ ```addOrder()```
+
+```cpp
+void addOrder() {
+        Order o;
+
+        cout << "Enter ID: ";
+        cin >> o.id;
+        cin.ignore();
+
+        cout << "Enter Name: ";
+        getline(cin, o.name);
+
+        cout << "Enter Hours: ";
+        cin >> o.hr;
+
+        // Priority Queue
+        if (o.hr <= 5) {
+            priority[pSize++] = o;
+
+            // Sort by shortest time
+            for (int i = 0; i < pSize - 1; i++) {
+                for (int j = i + 1; j < pSize; j++) {
+                    if (priority[j].hr < priority[i].hr) {
+                        swap(priority[i], priority[j]);
+                    }
+                }
+            }
+        }
+        // Normal Queue
+        else {
+            normal[++rear] = o;
+        }
+
+        // Push to stack
+        stack[++top] = o;
+
+        cout << GREEN << "\nOrder Added Successfully!\n" << RESET;
+    }
+
+```
 - Input order details (ID, Name, Hours)  
-- If hours ≤ 5:  
-  - Add to Priority Queue array  
-  - Insert then sort Priority Queue using nested loops based on hr (shortest time first)  
+- If **hours ≤ 5:**  
+  - Add to **Priority Queue** array  
+  - Insert then sort Priority Queue using nested loops based on ```hr``` (shortest time first)  
 - Else:  
-  - Add order to Normal Queue (FIFO using rear++)  
-  - Push order to Stack (for undo functionality)
+  - Add order to **Normal Queue** (FIFO using rear++)  
+  - Push order to **Stack** (for undo functionality)
 
 ### 🚚 Dispatch Order
 - If Priority Queue is not empty (pSize > 0):
@@ -95,14 +140,38 @@ The system ensures:
   Colors (RED, GREEN, BLUE) are used to highlight system messages, improving readability and user experience.   
 
 ### ⚖️ Trade-offs:
+<h1 align = "center"> ⋆˚🚚⋆˚ DeliverEase: Delivery Management System ⋆˚🚚⋆˚ </h1>
+<h2 align = center> by: ˚.📦🎀༘⋆ Queueties ˚.📦🎀༘⋆ </h2>
+
+## 📦 Order Structure
+
+```cpp
+struct Order {
+    int id;
+    string name;
+    int hr;
+};
+
+```
+
+The ```Order``` structure stores the details of each order:
+
+```id``` → Unique order number
+```name``` → Customer name
+```hr (hours)``` → Delivery time
+
+📌 If hr ≤ 5 → ```Priority Order```
+📌 If hr > 5 → ```Normal Order```
+
+
 
 ## ˖᯽ Project Developers ᯽˖
 |Name|Duties and Responsibilities|
 |----|---------------------------|
-|Buendia, Liam Keiji| Main Programmer|
-|Carandang, Mary Yvonne C.|Documentation Lead|
-|Lindo, Kristal Joy H.|Documentation II|
-|Pasamba, Carl Kendy| Assistant Programmer|
+|[Buendia, Liam Keiji](https://github.com/yambaby)| Main Programmer|
+|[Carandang, Mary Yvonne C.](https://github.com/maryyvonnecarandang-dev)|Documentation Lead|
+|[Lindo, Kristal Joy H.](https://github.com/Kristal29)|Documentation II|
+|[Pasamba, Carl Kendy](https://github.com/kendyow)| Assistant Programmer|
 
 
 ## ‧₊˚ ┊ Acknowledgment
@@ -111,11 +180,3 @@ We sincerely express our gratitude to our instructor for the guidance, support, 
 We also extend our appreciation to our classmates and peers for their cooperation, encouragement, and shared ideas, which contributed to the improvement of this system.
 
 Lastly, we acknowledge the learning resources and materials that helped us strengthen our understanding of data structures and programming concepts used in this project.
-
-
-
-
-
-
-
-
