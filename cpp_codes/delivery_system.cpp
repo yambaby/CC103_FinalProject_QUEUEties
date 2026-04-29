@@ -1,5 +1,5 @@
 #include <iostream>
-#include <iomanip>
+#include <string>
 using namespace std;
 
 #define MAX 100
@@ -68,19 +68,64 @@ public:
         // Push order into stack (for tracking or undo feature)
         stack[++top] = o;
 
-        cout << "\nOrder Added Successfully!\n"
+        cout << "\nOrder Added Successfully!\n";
     }
 
-    void
-    dispatchOrder()
+    void dispatchOrder()
     {
+        if (pSize > 0)
+        {
+            // check if there are priority order available
+            cout << "\nDelivered (Priority): " << priority[0].name << endl;
+            // shift all remaining priority orders forward in the array
+            for (int i = 0; i < pSize - 1; i++)
+            {
+                priority[i] = priority[i + 1];
+            }
+
+            // decrease size of priority queue
+            pSize--;
+        }
+        // if no priority orders, check normal queue
+        else if (front <= rear)
+        {
+            // deliver the order at front of normal queue
+            cout << "\nDelivered (Normal): " << normal[front].name << endl;
+        }
     }
 
     void undo() {}
 
     void display() {}
 
-    void search() {}
+    void search()
+    {
+        int id;
+        cout << "Enter ID to search: ";
+        cin >> id;
+
+        // Find order ID in Priority Queue first
+        for (int i = 0; i < pSize; i++)
+        {
+            if (priority[i].id == id)
+            {
+                cout << "\nFound in PRIORITY QUEUE!\n";
+                return;
+            }
+        }
+
+        // If not found, find order ID in Normal Queue
+        for (int i = front; i <= rear; i++)
+        {
+            if (normal[i].id == id)
+            {
+                cout << "\nFound in NORMAL QUEUE!\n";
+                return;
+            }
+        }
+        // If no order ID found
+        cout << "\nOrder not found.\n";
+    }
 };
 
 int main()
