@@ -86,6 +86,12 @@ public:
             // decrease size of priority queue
             pSize--;
         }
+        // if no priority orders, check normal queue
+        else if (front <= rear)
+        {
+            // deliver the order at front of normal queue
+            cout << "\nDelivered (Normal): " << normal[front].name << endl;
+        }
     }
 
     void undo() {}
