@@ -22,20 +22,25 @@ The system ensures:
 
 ## 🧱 Data Structures Used
 ### 1️. Priority Queue
-#### - What it is:
+#### - ❓ What it is:
   - A special type of queue where elements are processed based on priority instead of their arrival order.
-#### - Why used:
+#### - 🤔 Why used:
   - Orders with short delivery time ≤ 5 hours are treated as urgent and are processed first to ensure faster delivery.
 ### 2️. Queue
-#### - What it is:
+#### - ❓ What it is:
   - A linear First-In, First-Out (FIFO) data structure where the first element added is the first one to be removed.
-#### - Why used:
+#### - 🤔 Why used:
   - Normal orders (> 5 hours) are processed in the exact order they were received, ensuring fair and organized handling of non-urgent deliveries.
 ### 3️. Stack
-#### - What it is:
+#### - ❓ What it is:
 - A Last-In, First-Out (LIFO) data structure where the last element added is the first to be removed. 
-#### - Why used:
+#### - 🤔 Why used:
 - Enables Undo functionality, allowing the system to remove the most recently added order.
+### 4️. Array
+#### - ❓ What it is:
+- A fixed-size collection of elements stored in contiguous memory. 
+#### - 🤔 Why used:
+- Used to implement Queue, Stack, and Priority Queue due to simplicity fast access, and efficient handling of data in this system.
 
 ## ⚙️ Algorithm Explanation
 
