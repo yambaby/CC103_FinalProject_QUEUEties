@@ -11,7 +11,7 @@ struct Order
     int hr;
 };
 
-class FoodDeliverySystem 
+class FoodDeliverySystem
 {
 private:
     // Priority Queue
@@ -27,7 +27,8 @@ private:
     int top = -1;
 
 public:
-    void addOrder(){
+    void addOrder()
+    {
         Order o; // Create a new Order Object
 
         cout << "Enter ID: ";
@@ -70,36 +71,55 @@ public:
         cout << "\nOrder Added Successfully!\n";
     }
 
-    void dispatchOrder(){
+    void dispatchOrder()
+    {
+        if (pSize > 0)
+        {
+            // check if there are priority order available
+            cout << "\nDelivered (Priority): " << priority[0].name << endl;
+            // shift all remaining priority orders forward in the array
+            for (int i = 0; i < pSize - 1; i++)
+            {
+                priority[i] = priority[i + 1];
+            }
+
+            // decrease size of priority queue
+            pSize--;
+        }
     }
 
     void undo() {}
 
     void display() {}
 
-    void search() {
+    void search()
+    {
         int id;
         cout << "Enter ID to search: ";
         cin >> id;
 
-        //Find order ID in Priority Queue first
-        for (int i = 0; i < pSize; i++){
-            if (priority[i].id == id){
+        // Find order ID in Priority Queue first
+        for (int i = 0; i < pSize; i++)
+        {
+            if (priority[i].id == id)
+            {
                 cout << "\nFound in PRIORITY QUEUE!\n";
                 return;
             }
         }
 
-        //If not found, find order ID in Normal Queue
-        for (int i = front; i <= rear; i++){
-            if (normal[i].id == id) {
+        // If not found, find order ID in Normal Queue
+        for (int i = front; i <= rear; i++)
+        {
+            if (normal[i].id == id)
+            {
                 cout << "\nFound in NORMAL QUEUE!\n";
                 return;
             }
         }
-        //If no order ID found
+        // If no order ID found
         cout << "\nOrder not found.\n";
-        }
+    }
 };
 
 int main()
