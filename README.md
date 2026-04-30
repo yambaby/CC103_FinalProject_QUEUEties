@@ -146,10 +146,41 @@ void dispatchOrder()
 - Display confirmation message for removal  
 
 ### 🔍 Search Order
-- Input Order ID
-- Search in Priority Queue from index 0 to pSize-1
+```cpp
+void search()
+    {
+        int id;
+        cout << "Enter ID to search: ";
+        cin >> id;
+
+        // Find order ID in Priority Queue first
+        for (int i = 0; i < pSize; i++)
+        {
+            if (priority[i].id == id)
+            {
+                cout << "\nFound in PRIORITY QUEUE!\n";
+                return;
+            }
+        }
+
+        // If not found, find order ID in Normal Queue
+        for (int i = front; i <= rear; i++)
+        {
+            if (normal[i].id == id)
+            {
+                cout << "\nFound in NORMAL QUEUE!\n";
+                return;
+            }
+        }
+        // If no order ID found
+        cout << "\nOrder not found.\n";
+    }
+};
+```
+- Input Order ```ID```
+- Search in Priority Queue from ```index 0``` to ```pSize-1```
 - Display whether the order is found in Priority or Normal Queue
-- If not found in both, display "Order not found"  
+- If not found in both, display ```"Order not found"```  
 
 ### 📊 Display Orders
 - Display all elements in Priority Queue (from 0 to pSize-1)
