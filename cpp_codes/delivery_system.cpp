@@ -100,9 +100,59 @@ public:
         }
     }
 
-    void undo() {}
+    void undo() {
+        if (top == -1) {
+            cout <<"\nNothing to undo.\n";
+            return;
+        }
 
-    void display() {}
+        Order o = stack[top--];
+        cout << "\nUndo Order ID: " << o.id << endl;
+
+        // Remove from priority queue
+        for (int i = 0; i < pSize; i++) {
+            if (priority[i].id == o.id) {
+                for (int j = i; j < pSize - 1; j++) {
+                    priority[j] = priority[j + 1];
+                }
+                pSize--;
+                cout << "Removed from Priority Queue.\n";
+                return;
+            }
+        }
+
+        // Remove from normal queue
+        for (int i = front; i <= rear; i++) {
+            if (normal[i].id == o.id) {
+                for (int j = i; j < rear; j++) {
+                    normal[j] = normal[j + 1];
+                }
+                rear--;
+                cout << "Removed from Normal Queue.\n";
+                return;
+            }
+        }
+    }
+
+    void display() {
+        cout << "\n=========== PRIORITY ORDERS ===========\n";
+        if (pSize == 0) cout << "No priority orders.\n";
+
+        for (int i = 0; i < pSize; i++) {
+            cout << "[" << priority[i].id << "] "
+                 << priority[i].name << " (" << priority[i].hr << " hrs)\n";
+        }
+
+        cout << "\n=========== NORMAL ORDERS =============\n";
+        if (front > rear) cout << "No normal orders.\n";
+
+        for (int i = front; i <= rear; i++) {
+            cout << "[" << normal[i].id << "] "
+                 << normal[i].name << " (" << normal[i].hr << " hrs)\n";
+        }
+
+        cout << "=======================================\n";
+    }
 
     void search()
     {
@@ -142,8 +192,8 @@ int main()
     do
     {
         cout << "\n========================================\n";
-        cout << "     FOOD DELIVERY MANAGEMENT SYSTEM MENU\n           ";
-        cout << "\n========================================\n";
+        cout << "  FOOD DELIVERY MANAGEMENT SYSTEM MENU\n";
+        cout << "========================================\n";
 
         cout << " [1] Add Order\n";
         cout << " [2] Dispatch Order\n";
