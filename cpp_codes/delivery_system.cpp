@@ -91,6 +91,12 @@ public:
         {
             // deliver the order at front of normal queue
             cout << "\nDelivered (Normal): " << normal[front].name << endl;
+
+            front++;
+        }
+        else
+        {
+            cout << "\nNo orders.\n";
         }
     }
 
