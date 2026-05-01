@@ -195,7 +195,7 @@ The ```Order``` structure stores the details of each order:
 |-----|----|---------------------------|
 |25-00505|[Buendia, Liam Keiji](https://github.com/yambaby)| Main Programmer|
 |25-05687|[Carandang, Mary Yvonne C.](https://github.com/maryyvonnecarandang-dev)|Documentation Lead|
-|25-02469||[Lindo, Kristal Joy H.](https://github.com/Kristal29)|Documentation II|
+|25-02469|[Lindo, Kristal Joy H.](https://github.com/Kristal29)|Documentation II|
 |25-07065|[Pasamba, Carl Kendy](https://github.com/kendyow)| Assistant Programmer|
 
 
