@@ -132,6 +132,9 @@ void addOrder() {
 - Program terminates safely   
   
 ## 🔁 Iterative vs Recursive Comparison
+|Criteria|Iterative Approach|Recursive Approach|
+|-----|----------|-----|
+|⚡ Speed| Faster (no function call overhead)| Slower due to repeated function calls|
 
 ## 🎨 Design Decisions
 
@@ -180,12 +183,12 @@ The ```Order``` structure stores the details of each order:
 
 
 ## ˖᯽ Project Developers ᯽˖
-|Name|Duties and Responsibilities|
-|----|---------------------------|
-|[Buendia, Liam Keiji](https://github.com/yambaby)| Main Programmer|
-|[Carandang, Mary Yvonne C.](https://github.com/maryyvonnecarandang-dev)|Documentation Lead|
-|[Lindo, Kristal Joy H.](https://github.com/Kristal29)|Documentation II|
-|[Pasamba, Carl Kendy](https://github.com/kendyow)| Assistant Programmer|
+|SR-Code|Name|Duties and Responsibilities|
+|-----|----|---------------------------|
+|25-00505|[Buendia, Liam Keiji](https://github.com/yambaby)| Main Programmer|
+|25-05687|[Carandang, Mary Yvonne C.](https://github.com/maryyvonnecarandang-dev)|Documentation Lead|
+|25-02469||[Lindo, Kristal Joy H.](https://github.com/Kristal29)|Documentation II|
+|25-07065|[Pasamba, Carl Kendy](https://github.com/kendyow)| Assistant Programmer|
 
 
 ## ‧₊˚ ┊ Acknowledgment
