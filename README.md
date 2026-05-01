@@ -135,6 +135,14 @@ void addOrder() {
 |Criteria|Iterative Approach|Recursive Approach|
 |-----|----------|-----|
 |⚡ Speed| Faster (no function call overhead)| Slower due to repeated function calls|
+| 🧠 Memory Usage| Uses less memory| Uses more memory (call stack)|
+| 📖 Readability| Easier to understand and implement| Can be complex for beginners|
+| 🔧 Used in System| ✅ Used (loops in all operations)| ❌ Not used|
+
+### Conclusion:
+- The iterative approach is faster and more memory-efficient since it avoids function call overhead. 
+- It is more suitable for this system because all operations (sorting, searching, traversal, and shifting) are implemented using loops. 
+- Iteration provides better control and simplicity, making it ideal for this console-based application.
 
 ## 🎨 Design Decisions
 
