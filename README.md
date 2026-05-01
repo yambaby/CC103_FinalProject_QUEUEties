@@ -166,8 +166,14 @@ void addOrder() {
   Colors (RED, GREEN, BLUE) are used to highlight system messages, improving readability and user experience.   
 
 ### ⚖️ Trade-offs:
+- ❌ Fixed size limitation and lack of scalability  
+  The system can only store up to 100 orders due to static array allocation and cannot dynamically expand.
 
+- ❌ Manual sorting is less efficient (O(n²))  
+  The nested loop sorting used in the Priority Queue is slower compared to more advanced structures like heaps.  
 
+- ❌ Deletion requires shifting elements  
+  Removing elements from arrays requires shifting, which adds extra processing time.  
 ## 📦 Order Structure
 
 ```cpp
