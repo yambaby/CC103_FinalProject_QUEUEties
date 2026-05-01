@@ -173,7 +173,15 @@ void addOrder() {
   The nested loop sorting used in the Priority Queue is slower compared to more advanced structures like heaps.  
 
 - ❌ Deletion requires shifting elements  
-  Removing elements from arrays requires shifting, which adds extra processing time.  
+  Removing elements from arrays requires shifting, which adds extra processing time.
+
+- ✅ Simple and beginner-friendly implementation  
+  The use of arrays and basic logic makes the system easy to understand and suitable for learning data structures.  
+
+- ✅ No dynamic memory complexity and predictable behavior  
+  The use of static arrays avoids pointers and dynamic allocation, reducing the risk of memory errors while ensuring low memory overhead and stable performance.
+
+  
 ## 📦 Order Structure
 
 ```cpp
