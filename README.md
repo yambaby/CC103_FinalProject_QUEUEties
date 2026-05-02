@@ -96,15 +96,46 @@ void addOrder() {
   - Push order to **Stack** (for undo functionality)
 
 ### 🚚 Dispatch Order
-- If Priority Queue is not empty (pSize > 0):
-   - Display and deliver the first element of Priority Queue (priority[0])
+
+```cpp
+void dispatchOrder()
+    {
+        if (pSize > 0)
+        {
+            // check if there are priority order available
+            cout << "\nDelivered (Priority): " << priority[0].name << endl;
+            // shift all remaining priority orders forward in the array
+            for (int i = 0; i < pSize - 1; i++)
+            {
+                priority[i] = priority[i + 1];
+            }
+
+            // decrease size of priority queue
+            pSize--;
+        }
+        // if no priority orders, check normal queue
+        else if (front <= rear)
+        {
+            // deliver the order at front of normal queue
+            cout << "\nDelivered (Normal): " << normal[front].name << endl;
+
+            front++;
+        }
+        else
+        {
+            cout << "\nNo orders.\n";
+        }
+    }
+```
+- **If** Priority Queue is not empty ```(pSize > 0):```
+   - Display and deliver the first element of Priority Queue ```(priority[0])```
    - Shift all remaining elements left
-   - Decrease pSize
-- Else if Normal Queue is not empty (front <= rear):
-   - Display and deliver the first element in Normal Queue (normal[front])
+   - Decrease ```pSize```
+- **Else if** Normal Queue is not empty ```(front <= rear)```:
+   - Display and deliver the first element in Normal Queue ```(normal[front])```
    - Increment front
-- Else:
-   - Display "No orders"  
+- **Else**:
+   - Display ```"No orders"```  
 
 ### ↩️ Undo Order
 - Pop last order from Stack (top--)
@@ -115,10 +146,41 @@ void addOrder() {
 - Display confirmation message for removal  
 
 ### 🔍 Search Order
-- Input Order ID
-- Search in Priority Queue from index 0 to pSize-1
+```cpp
+void search()
+    {
+        int id;
+        cout << "Enter ID to search: ";
+        cin >> id;
+
+        // Find order ID in Priority Queue first
+        for (int i = 0; i < pSize; i++)
+        {
+            if (priority[i].id == id)
+            {
+                cout << "\nFound in PRIORITY QUEUE!\n";
+                return;
+            }
+        }
+
+        // If not found, find order ID in Normal Queue
+        for (int i = front; i <= rear; i++)
+        {
+            if (normal[i].id == id)
+            {
+                cout << "\nFound in NORMAL QUEUE!\n";
+                return;
+            }
+        }
+        // If no order ID found
+        cout << "\nOrder not found.\n";
+    }
+};
+```
+- Input Order ```ID```
+- Search in Priority Queue from ```index 0``` to ```pSize-1```
 - Display whether the order is found in Priority or Normal Queue
-- If not found in both, display "Order not found"  
+- If not found in both, display ```"Order not found"```  
 
 ### 📊 Display Orders
 - Display all elements in Priority Queue (from 0 to pSize-1)
