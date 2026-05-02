@@ -132,6 +132,17 @@ void addOrder() {
 - Program terminates safely   
   
 ## 🔁 Iterative vs Recursive Comparison
+|Criteria|Iterative Approach|Recursive Approach|
+|-----|----------|-----|
+|⚡ Speed| Faster (no function call overhead)| Slower due to repeated function calls|
+| 🧠 Memory Usage| Uses less memory| Uses more memory (call stack)|
+| 📖 Readability| Easier to understand and implement| Can be complex for beginners|
+| 🔧 Used in System| ✅ Used (loops in all operations)| ❌ Not used|
+
+### Conclusion:
+- The iterative approach is faster and more memory-efficient since it avoids function call overhead. 
+- It is more suitable for this system because all operations (sorting, searching, traversal, and shifting) are implemented using loops. 
+- Iteration provides better control and simplicity, making it ideal for this console-based application.
 
 ## 🎨 Design Decisions
 
@@ -155,8 +166,22 @@ void addOrder() {
   Colors (RED, GREEN, BLUE) are used to highlight system messages, improving readability and user experience.   
 
 ### ⚖️ Trade-offs:
+- ❌ Fixed size limitation and lack of scalability  
+  The system can only store up to 100 orders due to static array allocation and cannot dynamically expand.
 
+- ❌ Manual sorting is less efficient (O(n²))  
+  The nested loop sorting used in the Priority Queue is slower compared to more advanced structures like heaps.  
 
+- ❌ Deletion requires shifting elements  
+  Removing elements from arrays requires shifting, which adds extra processing time.
+
+- ✅ Simple and beginner-friendly implementation  
+  The use of arrays and basic logic makes the system easy to understand and suitable for learning data structures.  
+
+- ✅ No dynamic memory complexity and predictable behavior  
+  The use of static arrays avoids pointers and dynamic allocation, reducing the risk of memory errors while ensuring low memory overhead and stable performance.
+
+  
 ## 📦 Order Structure
 
 ```cpp
@@ -180,12 +205,12 @@ The ```Order``` structure stores the details of each order:
 
 
 ## ˖᯽ Project Developers ᯽˖
-|Name|Duties and Responsibilities|
-|----|---------------------------|
-|[Buendia, Liam Keiji](https://github.com/yambaby)| Main Programmer|
-|[Carandang, Mary Yvonne C.](https://github.com/maryyvonnecarandang-dev)|Documentation Lead|
-|[Lindo, Kristal Joy H.](https://github.com/Kristal29)|Documentation II|
-|[Pasamba, Carl Kendy](https://github.com/kendyow)| Assistant Programmer|
+|SR-Code|Name|Duties and Responsibilities|
+|-----|----|---------------------------|
+|25-00505|[Buendia, Liam Keiji](https://github.com/yambaby)| Main Programmer|
+|25-05687|[Carandang, Mary Yvonne C.](https://github.com/maryyvonnecarandang-dev)|Documentation Lead|
+|25-02469|[Lindo, Kristal Joy H.](https://github.com/Kristal29)|Documentation II|
+|25-07065|[Pasamba, Carl Kendy](https://github.com/kendyow)| Assistant Programmer|
 
 
 ## ‧₊˚ ┊ Acknowledgment
