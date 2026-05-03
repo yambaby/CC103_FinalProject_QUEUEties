@@ -138,6 +138,43 @@ void dispatchOrder()
    - Display ```"No orders"```  
 
 ### ↩️ Undo Order
+```cpp
+ void undo() {
+//check if stack is empty 
+        if (top == -1) {
+            cout <<"\nNothing to undo.\n";
+            return;
+        }
+//get the last order from the stack to remove it
+        Order o = stack[top--];
+        cout << "\nUndo Order ID: " << o.id << endl;
+
+        // Remove from priority queue
+        for (int i = 0; i < pSize; i++) {
+            if (priority[i].id == o.id) {
+                //shift elements to the left to fill the gap
+                for (int j = i; j < pSize - 1; j++) {
+                    priority[j] = priority[j + 1];
+                }
+                pSize--; //reduce size of priority queue
+                cout << "Removed from Priority Queue.\n";
+                return;
+            }
+        }
+
+        // Remove from normal queue
+        for (int i = front; i <= rear; i++) {
+            if (normal[i].id == o.id) {
+                for (int j = i; j < rear; j++) {
+                    normal[j] = normal[j + 1];
+                }
+                rear--;
+                cout << "Removed from Normal Queue.\n";
+                return;
+            }
+        }
+    }
+```
 - Pop last order from Stack (top--)
 - Search the order ID in Priority Queue:
   - If found, remove it by shifting elements left and decrease pSize
