@@ -46,6 +46,27 @@ The system ensures:
 
 ### 📝 Step-by-Step Logic
 
+## 📦 Order Structure
+
+```cpp
+struct Order {
+    int id;
+    string name;
+    int hr;
+};
+
+```
+
+The ```Order``` structure stores the details of each order:
+
+```id``` → Unique order number
+```name``` → Customer name
+```hr (hours)``` → Delivery time
+
+📌 If hr ≤ 5 → ```Priority Order```
+📌 If hr > 5 → ```Normal Order```
+
+
 ### ➕ ```addOrder()```
 
 ```cpp
@@ -138,11 +159,48 @@ void dispatchOrder()
    - Display ```"No orders"```  
 
 ### ↩️ Undo Order
-- Pop last order from Stack (top--)
-- Search the order ID in Priority Queue:
-  - If found, remove it by shifting elements left and decrease pSize
-- Else search in Normal Queue:
-  - If found, remove it by shifting elements left and decrease rear
+```cpp
+ void undo() {
+//check if stack is empty 
+        if (top == -1) {
+            cout <<"\nNothing to undo.\n";
+            return;
+        }
+//get the last order from the stack to remove it
+        Order o = stack[top--];
+        cout << "\nUndo Order ID: " << o.id << endl;
+
+        // Remove from priority queue
+        for (int i = 0; i < pSize; i++) {
+            if (priority[i].id == o.id) {
+                //shift elements to the left to fill the gap
+                for (int j = i; j < pSize - 1; j++) {
+                    priority[j] = priority[j + 1];
+                }
+                pSize--; //reduce size of priority queue
+                cout << "Removed from Priority Queue.\n";
+                return;
+            }
+        }
+
+        // Remove from normal queue
+        for (int i = front; i <= rear; i++) {
+            if (normal[i].id == o.id) {
+                for (int j = i; j < rear; j++) {
+                    normal[j] = normal[j + 1];
+                }
+                rear--;
+                cout << "Removed from Normal Queue.\n";
+                return;
+            }
+        }
+    }
+```
+- Pop last order from Stack ```(top--)```
+- **Search the order ID in Priority Queue:**
+  - If found, remove it by shifting elements left and decrease ```pSize```
+- **Else search in Normal Queue:**
+  - If found, remove it by shifting elements left and decrease ```rear```
 - Display confirmation message for removal  
 
 ### 🔍 Search Order
@@ -183,14 +241,41 @@ void search()
 - If not found in both, display ```"Order not found"```  
 
 ### 📊 Display Orders
-- Display all elements in Priority Queue (from 0 to pSize-1)
-- Display all elements in Normal Queue (from front to rear)
-- Show order ID, name, and hours for each  
+```cpp
+ void display() {
+        cout << "\n=========== PRIORITY ORDERS ===========\n";
+
+        //check if no priority orders
+        if (pSize == 0) cout << "No priority orders.\n";
+
+       //display all orders
+        for (int i = 0; i < pSize; i++) {
+            cout << "[" << priority[i].id << "] "
+                 << priority[i].name << " (" << priority[i].hr << " hrs)\n";
+        }
+
+        cout << "\n=========== NORMAL ORDERS =============\n";
+
+        //check if normal queue is empty
+        if (front > rear) cout << "No normal orders.\n";
+
+        //display all normal orders
+        for (int i = front; i <= rear; i++) {
+            cout << "[" << normal[i].id << "] "
+                 << normal[i].name << " (" << normal[i].hr << " hrs)\n";
+        }
+
+        cout << "=======================================\n";
+    }
+```
+- Display all elements in Priority Queue ```(from 0 to pSize-1)```
+- Display all elements in Normal Queue ```(from front to rear)```
+- Show order ```ID```, ```name```, and ```hours``` for each  
 
 ### 🚪 Exit System
-- User selects option [6] Exit
-- Program executes case 6 and displays "Exiting system..."
-- Loop condition while(choice != 6) ends execution
+- User selects option ```[6] Exit```
+- Program executes case 6 and displays ```"Exiting system..."```
+- Loop condition ```while(choice != 6)``` ends execution
 - Program terminates safely   
   
 ## 🔁 Iterative vs Recursive Comparison
@@ -243,28 +328,6 @@ void search()
 - ✅ No dynamic memory complexity and predictable behavior  
   The use of static arrays avoids pointers and dynamic allocation, reducing the risk of memory errors while ensuring low memory overhead and stable performance.
 
-  
-## 📦 Order Structure
-
-```cpp
-struct Order {
-    int id;
-    string name;
-    int hr;
-};
-
-```
-
-The ```Order``` structure stores the details of each order:
-
-```id``` → Unique order number
-```name``` → Customer name
-```hr (hours)``` → Delivery time
-
-📌 If hr ≤ 5 → ```Priority Order```
-📌 If hr > 5 → ```Normal Order```
-
-
 
 ## ˖᯽ Project Developers ᯽˖
 |SR-Code|Name|Duties and Responsibilities|
@@ -276,7 +339,7 @@ The ```Order``` structure stores the details of each order:
 
 
 ## ‧₊˚ ┊ Acknowledgment
-We sincerely express our gratitude to our instructor for the guidance, support, and valuable insights provided throughout the development of this project.
+We sincerely express our gratitude to our instructor [Ms. Fatima Marie Agdon, MSCS](https://github.com/marieemoiselle) for the guidance, support, and valuable insights provided throughout the development of this project.
 
 We also extend our appreciation to our classmates and peers for their cooperation, encouragement, and shared ideas, which contributed to the improvement of this system.
 
