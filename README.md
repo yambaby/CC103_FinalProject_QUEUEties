@@ -281,15 +281,16 @@ void search()
 ## 🔁 Iterative vs Recursive Comparison
 |Criteria|Iterative Approach|Recursive Approach|
 |-----|----------|-----|
-|⚡ Speed| Faster (no function call overhead)| Slower due to repeated function calls|
+|⚡ Speed| Faster (no function call overhead)| Slightly slower (function call overhead)|
 | 🧠 Memory Usage| Uses less memory| Uses more memory (call stack)|
 | 📖 Readability| Easier to understand and implement| Can be complex for beginners|
-| 🔧 Used in System| ✅ Used (loops in all operations)| ❌ Not used|
+| 🔧 Used in System| ✅ Used in add, dispatch, undo, display (loops)| ✅ Used in search function|
 
 ### Conclusion:
-- The iterative approach is faster and more memory-efficient since it avoids function call overhead. 
-- It is more suitable for this system because all operations (sorting, searching, traversal, and shifting) are implemented using loops. 
-- Iteration provides better control and simplicity, making it ideal for this console-based application.
+- The system primarily uses iteration for efficiency and control in managing queues and stack operations.
+- Recursion is used specifically for searching, making the search logic cleaner and modular.
+- Iteration is still more suitable for most operations such as searching.
+- A hybrid approach (iteration + recursion) is used in this system.
 
 ## 🎨 Design Decisions
 
