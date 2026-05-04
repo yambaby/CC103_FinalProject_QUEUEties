@@ -161,33 +161,50 @@ public:
         cout << "=======================================\n";
     }
 
-    void search()
-    {
-        int id;
-        cout << "Enter ID to search: ";
-        cin >> id;
+    bool searchPriorityOrders(int index, int target, Order& found) {
+        if (index >= pSize) {
+            return false;
+        }
+        if (priority[index].id == target) {
+            found = priority[index];
+            return true;
+        }
+        return searchPriorityOrders(index + 1, target, found);
+    }
 
-        // Find order ID in Priority Queue first
-        for (int i = 0; i < pSize; i++)
-        {
-            if (priority[i].id == id)
-            {
-                cout << GREEN << "\nFound in PRIORITY QUEUE!\n" << RESET;
-                return;
-            }
+    bool searchNormalOrders(int index, int target, Order& found) {
+        if (index > rear) {
+            return false;
+        }
+        if (normal[index].id == target) {
+            found = normal[index];
+            return true;
+        }
+        return searchNormalOrders(index + 1, target, found);
+    }
+    void search() {
+        int target;
+        cout << "Enter Order ID: ";
+        cin >> target;
+
+        Order found;
+        
+        if (searchPriorityOrders(0, target, found)) {
+            cout << "Order FOUND in PRIORITY QUEUE!" << endl;
+            cout << "ID: " << found.id
+                << " | Name: " << found.name
+                << " | Hours: " << found.hr << endl;
         }
 
-        // If not found, find order ID in Normal Queue
-        for (int i = front; i <= rear; i++)
-        {
-            if (normal[i].id == id)
-            {
-                cout << GREEN << "\nFound in NORMAL QUEUE!\n" << RESET;
-                return;
-            }
+        else if (searchNormalOrders(front, target, found)) {
+            cout << "Order FOUND in NORMAL QUEUE!" << endl;
+                cout << "ID: " << found.id
+                << " | Name: " << found.name
+                << " | Hours: " << found.hr << endl;
         }
-        // If no order ID found
-        cout << RED << "\nOrder not found.\n" << RESET;
+        else {
+            cout << "Order not found." << endl;
+        }
     }
 };
 
