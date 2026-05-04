@@ -25,12 +25,12 @@ The system ensures:
 #### - ❓ What it is:
   - A special type of queue where elements are processed based on priority instead of their arrival order.
 #### - 🤔 Why used:
-  - Orders with short delivery time ≤ 5 hours are treated as urgent and are processed first to ensure faster delivery.
+  - Orders with short delivery ```time ≤ 5 hours``` are treated as urgent and are processed first to ensure faster delivery.
 ### 2️. Queue
 #### - ❓ What it is:
   - A linear First-In, First-Out (FIFO) data structure where the first element added is the first one to be removed.
 #### - 🤔 Why used:
-  - Normal orders (> 5 hours) are processed in the exact order they were received, ensuring fair and organized handling of non-urgent deliveries.
+  - Normal orders ```(> 5 hours)``` are processed in the exact order they were received, ensuring fair and organized handling of non-urgent deliveries.
 ### 3️. Stack
 #### - ❓ What it is:
 - A Last-In, First-Out (LIFO) data structure where the last element added is the first to be removed. 
@@ -45,6 +45,27 @@ The system ensures:
 ## ⚙️ Algorithm Explanation
 
 ### 📝 Step-by-Step Logic
+
+## 📦 Order Structure
+
+```cpp
+struct Order {
+    int id;
+    string name;
+    int hr;
+};
+
+```
+
+The ```Order``` structure stores the details of each order:
+
+```id``` → Unique order number
+```name``` → Customer name
+```hr (hours)``` → Delivery time
+
+📌 If hr ≤ 5 → ```Priority Order```
+📌 If hr > 5 → ```Normal Order```
+
 
 ### ➕ ```addOrder()```
 
@@ -96,39 +117,165 @@ void addOrder() {
   - Push order to **Stack** (for undo functionality)
 
 ### 🚚 Dispatch Order
-- If Priority Queue is not empty (pSize > 0):
-   - Display and deliver the first element of Priority Queue (priority[0])
+
+```cpp
+void dispatchOrder()
+    {
+        if (pSize > 0)
+        {
+            // check if there are priority order available
+            cout << "\nDelivered (Priority): " << priority[0].name << endl;
+            // shift all remaining priority orders forward in the array
+            for (int i = 0; i < pSize - 1; i++)
+            {
+                priority[i] = priority[i + 1];
+            }
+
+            // decrease size of priority queue
+            pSize--;
+        }
+        // if no priority orders, check normal queue
+        else if (front <= rear)
+        {
+            // deliver the order at front of normal queue
+            cout << "\nDelivered (Normal): " << normal[front].name << endl;
+
+            front++;
+        }
+        else
+        {
+            cout << "\nNo orders.\n";
+        }
+    }
+```
+- **If** Priority Queue is not empty ```(pSize > 0):```
+   - Display and deliver the first element of Priority Queue ```(priority[0])```
    - Shift all remaining elements left
-   - Decrease pSize
-- Else if Normal Queue is not empty (front <= rear):
-   - Display and deliver the first element in Normal Queue (normal[front])
+   - Decrease ```pSize```
+- **Else if** Normal Queue is not empty ```(front <= rear)```:
+   - Display and deliver the first element in Normal Queue ```(normal[front])```
    - Increment front
-- Else:
-   - Display "No orders"  
+- **Else**:
+   - Display ```"No orders"```  
 
 ### ↩️ Undo Order
-- Pop last order from Stack (top--)
-- Search the order ID in Priority Queue:
-  - If found, remove it by shifting elements left and decrease pSize
-- Else search in Normal Queue:
-  - If found, remove it by shifting elements left and decrease rear
+```cpp
+ void undo() {
+//check if stack is empty 
+        if (top == -1) {
+            cout <<"\nNothing to undo.\n";
+            return;
+        }
+//get the last order from the stack to remove it
+        Order o = stack[top--];
+        cout << "\nUndo Order ID: " << o.id << endl;
+
+        // Remove from priority queue
+        for (int i = 0; i < pSize; i++) {
+            if (priority[i].id == o.id) {
+                //shift elements to the left to fill the gap
+                for (int j = i; j < pSize - 1; j++) {
+                    priority[j] = priority[j + 1];
+                }
+                pSize--; //reduce size of priority queue
+                cout << "Removed from Priority Queue.\n";
+                return;
+            }
+        }
+
+        // Remove from normal queue
+        for (int i = front; i <= rear; i++) {
+            if (normal[i].id == o.id) {
+                for (int j = i; j < rear; j++) {
+                    normal[j] = normal[j + 1];
+                }
+                rear--;
+                cout << "Removed from Normal Queue.\n";
+                return;
+            }
+        }
+    }
+```
+- Pop last order from Stack ```(top--)```
+- **Search the order ID in Priority Queue:**
+  - If found, remove it by shifting elements left and decrease ```pSize```
+- **Else search in Normal Queue:**
+  - If found, remove it by shifting elements left and decrease ```rear```
 - Display confirmation message for removal  
 
 ### 🔍 Search Order
-- Input Order ID
-- Search in Priority Queue from index 0 to pSize-1
+```cpp
+void search()
+    {
+        int id;
+        cout << "Enter ID to search: ";
+        cin >> id;
+
+        // Find order ID in Priority Queue first
+        for (int i = 0; i < pSize; i++)
+        {
+            if (priority[i].id == id)
+            {
+                cout << "\nFound in PRIORITY QUEUE!\n";
+                return;
+            }
+        }
+
+        // If not found, find order ID in Normal Queue
+        for (int i = front; i <= rear; i++)
+        {
+            if (normal[i].id == id)
+            {
+                cout << "\nFound in NORMAL QUEUE!\n";
+                return;
+            }
+        }
+        // If no order ID found
+        cout << "\nOrder not found.\n";
+    }
+};
+```
+- Input Order ```ID```
+- Search in Priority Queue from ```index 0``` to ```pSize-1```
 - Display whether the order is found in Priority or Normal Queue
-- If not found in both, display "Order not found"  
+- If not found in both, display ```"Order not found"```  
 
 ### 📊 Display Orders
-- Display all elements in Priority Queue (from 0 to pSize-1)
-- Display all elements in Normal Queue (from front to rear)
-- Show order ID, name, and hours for each  
+```cpp
+ void display() {
+        cout << "\n=========== PRIORITY ORDERS ===========\n";
+
+        //check if no priority orders
+        if (pSize == 0) cout << "No priority orders.\n";
+
+       //display all orders
+        for (int i = 0; i < pSize; i++) {
+            cout << "[" << priority[i].id << "] "
+                 << priority[i].name << " (" << priority[i].hr << " hrs)\n";
+        }
+
+        cout << "\n=========== NORMAL ORDERS =============\n";
+
+        //check if normal queue is empty
+        if (front > rear) cout << "No normal orders.\n";
+
+        //display all normal orders
+        for (int i = front; i <= rear; i++) {
+            cout << "[" << normal[i].id << "] "
+                 << normal[i].name << " (" << normal[i].hr << " hrs)\n";
+        }
+
+        cout << "=======================================\n";
+    }
+```
+- Display all elements in Priority Queue ```(from 0 to pSize-1)```
+- Display all elements in Normal Queue ```(from front to rear)```
+- Show order ```ID```, ```name```, and ```hours``` for each  
 
 ### 🚪 Exit System
-- User selects option [6] Exit
-- Program executes case 6 and displays "Exiting system..."
-- Loop condition while(choice != 6) ends execution
+- User selects option ```[6] Exit```
+- Program executes case 6 and displays ```"Exiting system..."```
+- Loop condition ```while(choice != 6)``` ends execution
 - Program terminates safely   
   
 ## 🔁 Iterative vs Recursive Comparison
@@ -148,61 +295,39 @@ void addOrder() {
 ## 🎨 Design Decisions
 
 ### ✅ Choices Made:
-- Used fixed-size arrays (MAX = 100) for all data structures  
-  Arrays are used to implement the Priority Queue, Normal Queue, and Stack, providing simple implementation and fast data access without dynamic memory.
+- Used fixed-size arrays ```(MAX = 100)``` for all data structures  
+  Arrays are used to implement the **Priority Queue, Normal Queue, and Stack**, providing simple implementation and fast data access without dynamic memory.
 
-- Implemented Priority Queue using manual sorting (nested loops)  
-  Orders with hr ≤ 5 are stored in the priority array and sorted using a nested loop comparison to ensure the shortest delivery time is always processed first.  
+- Implemented **Priority Queue** using manual sorting (nested loops)  
+  Orders with ```hr ≤ 5``` are stored in the priority array and sorted using a nested loop comparison to ensure the shortest delivery time is always processed first.  
 
-- Applied FIFO logic for Normal Queue using front and rear indices  
+- Applied **FIFO** logic for Normal Queue using front and rear indices  
   Normal orders are processed in the order they arrive by incrementing rear during insertion and front during dispatch.  
 
-- Used Stack (LIFO) with top pointer for Undo functionality  
-  Each added order is pushed onto the stack, allowing the system to undo the most recent order using top--.  
+- Used **Stack (LIFO)** with top pointer for Undo functionality  
+  Each added order is pushed onto the stack, allowing the system to undo the most recent order using ```top--```.  
 
 - Used array shifting for deletion operations  
   Elements are shifted left when removing orders (during dispatch or undo) to maintain the correct structure of the arrays.  
 
-- Console-based interface with ANSI color codes  
-  Colors (RED, GREEN, BLUE) are used to highlight system messages, improving readability and user experience.   
+- Console-based interface with **ANSI** color codes  
+  Colors **(RED, GREEN, BLUE)** are used to highlight system messages, improving readability and user experience.   
 
 ### ⚖️ Trade-offs:
-- ❌ Fixed size limitation and lack of scalability  
+- ❌ Fixed size limitation and lack of scalability
   The system can only store up to 100 orders due to static array allocation and cannot dynamically expand.
 
 - ❌ Manual sorting is less efficient (O(n²))  
   The nested loop sorting used in the Priority Queue is slower compared to more advanced structures like heaps.  
 
-- ❌ Deletion requires shifting elements  
+- ❌ Deletion requires shifting elements 
   Removing elements from arrays requires shifting, which adds extra processing time.
 
-- ✅ Simple and beginner-friendly implementation  
+- ✅ Simple and beginner-friendly implementation
   The use of arrays and basic logic makes the system easy to understand and suitable for learning data structures.  
 
-- ✅ No dynamic memory complexity and predictable behavior  
+- ✅ No dynamic memory complexity and predictable behavior 
   The use of static arrays avoids pointers and dynamic allocation, reducing the risk of memory errors while ensuring low memory overhead and stable performance.
-
-  
-## 📦 Order Structure
-
-```cpp
-struct Order {
-    int id;
-    string name;
-    int hr;
-};
-
-```
-
-The ```Order``` structure stores the details of each order:
-
-```id``` → Unique order number
-```name``` → Customer name
-```hr (hours)``` → Delivery time
-
-📌 If hr ≤ 5 → ```Priority Order```
-📌 If hr > 5 → ```Normal Order```
-
 
 
 ## ˖᯽ Project Developers ᯽˖
@@ -211,12 +336,15 @@ The ```Order``` structure stores the details of each order:
 |25-00505|[Buendia, Liam Keiji](https://github.com/yambaby)| Main Programmer|
 |25-05687|[Carandang, Mary Yvonne C.](https://github.com/maryyvonnecarandang-dev)|Documentation Lead|
 |25-02469|[Lindo, Kristal Joy H.](https://github.com/Kristal29)|Documentation II|
-|25-07065|[Pasamba, Carl Kendy](https://github.com/kendyow)| Assistant Programmer|
+|25-07065|[Pasamba, Carl Kendy](https://github.com/kendyow)| Main Programmer II|
 
 
 ## ‧₊˚ ┊ Acknowledgment
-We sincerely express our gratitude to our instructor for the guidance, support, and valuable insights provided throughout the development of this project.
+We sincerely express our gratitude to our instructor [Ms. Fatima Marie Agdon, MSCS](https://github.com/marieemoiselle) for the guidance, support, and valuable insights provided throughout the development of this project.
 
 We also extend our appreciation to our classmates and peers for their cooperation, encouragement, and shared ideas, which contributed to the improvement of this system.
 
 Lastly, we acknowledge the learning resources and materials that helped us strengthen our understanding of data structures and programming concepts used in this project.
+
+![C++](https://img.shields.io/badge/Language-C++-blue)
+![Status](https://img.shields.io/badge/Status-Completed-green)
