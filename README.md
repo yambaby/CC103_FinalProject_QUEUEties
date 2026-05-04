@@ -25,12 +25,12 @@ The system ensures:
 #### - ❓ What it is:
   - A special type of queue where elements are processed based on priority instead of their arrival order.
 #### - 🤔 Why used:
-  - Orders with short delivery time ≤ 5 hours are treated as urgent and are processed first to ensure faster delivery.
+  - Orders with short delivery ```time ≤ 5 hours``` are treated as urgent and are processed first to ensure faster delivery.
 ### 2️. Queue
 #### - ❓ What it is:
   - A linear First-In, First-Out (FIFO) data structure where the first element added is the first one to be removed.
 #### - 🤔 Why used:
-  - Normal orders (> 5 hours) are processed in the exact order they were received, ensuring fair and organized handling of non-urgent deliveries.
+  - Normal orders ```(> 5 hours)``` are processed in the exact order they were received, ensuring fair and organized handling of non-urgent deliveries.
 ### 3️. Stack
 #### - ❓ What it is:
 - A Last-In, First-Out (LIFO) data structure where the last element added is the first to be removed. 
@@ -294,38 +294,38 @@ void search()
 ## 🎨 Design Decisions
 
 ### ✅ Choices Made:
-- Used fixed-size arrays (MAX = 100) for all data structures  
-  Arrays are used to implement the Priority Queue, Normal Queue, and Stack, providing simple implementation and fast data access without dynamic memory.
+- Used fixed-size arrays ```(MAX = 100)``` for all data structures  
+  Arrays are used to implement the **Priority Queue, Normal Queue, and Stack**, providing simple implementation and fast data access without dynamic memory.
 
-- Implemented Priority Queue using manual sorting (nested loops)  
-  Orders with hr ≤ 5 are stored in the priority array and sorted using a nested loop comparison to ensure the shortest delivery time is always processed first.  
+- Implemented **Priority Queue** using manual sorting (nested loops)  
+  Orders with ```hr ≤ 5``` are stored in the priority array and sorted using a nested loop comparison to ensure the shortest delivery time is always processed first.  
 
-- Applied FIFO logic for Normal Queue using front and rear indices  
+- Applied **FIFO** logic for Normal Queue using front and rear indices  
   Normal orders are processed in the order they arrive by incrementing rear during insertion and front during dispatch.  
 
-- Used Stack (LIFO) with top pointer for Undo functionality  
-  Each added order is pushed onto the stack, allowing the system to undo the most recent order using top--.  
+- Used **Stack (LIFO)** with top pointer for Undo functionality  
+  Each added order is pushed onto the stack, allowing the system to undo the most recent order using ```top--```.  
 
 - Used array shifting for deletion operations  
   Elements are shifted left when removing orders (during dispatch or undo) to maintain the correct structure of the arrays.  
 
-- Console-based interface with ANSI color codes  
-  Colors (RED, GREEN, BLUE) are used to highlight system messages, improving readability and user experience.   
+- Console-based interface with **ANSI** color codes  
+  Colors **(RED, GREEN, BLUE)** are used to highlight system messages, improving readability and user experience.   
 
 ### ⚖️ Trade-offs:
-- ❌ Fixed size limitation and lack of scalability  
+- ❌ Fixed size limitation and lack of scalability
   The system can only store up to 100 orders due to static array allocation and cannot dynamically expand.
 
 - ❌ Manual sorting is less efficient (O(n²))  
   The nested loop sorting used in the Priority Queue is slower compared to more advanced structures like heaps.  
 
-- ❌ Deletion requires shifting elements  
+- ❌ Deletion requires shifting elements 
   Removing elements from arrays requires shifting, which adds extra processing time.
 
-- ✅ Simple and beginner-friendly implementation  
+- ✅ Simple and beginner-friendly implementation
   The use of arrays and basic logic makes the system easy to understand and suitable for learning data structures.  
 
-- ✅ No dynamic memory complexity and predictable behavior  
+- ✅ No dynamic memory complexity and predictable behavior 
   The use of static arrays avoids pointers and dynamic allocation, reducing the risk of memory errors while ensuring low memory overhead and stable performance.
 
 
@@ -335,7 +335,7 @@ void search()
 |25-00505|[Buendia, Liam Keiji](https://github.com/yambaby)| Main Programmer|
 |25-05687|[Carandang, Mary Yvonne C.](https://github.com/maryyvonnecarandang-dev)|Documentation Lead|
 |25-02469|[Lindo, Kristal Joy H.](https://github.com/Kristal29)|Documentation II|
-|25-07065|[Pasamba, Carl Kendy](https://github.com/kendyow)| Assistant Programmer|
+|25-07065|[Pasamba, Carl Kendy](https://github.com/kendyow)| Main Programmer II|
 
 
 ## ‧₊˚ ┊ Acknowledgment
@@ -344,3 +344,6 @@ We sincerely express our gratitude to our instructor [Ms. Fatima Marie Agdon, MS
 We also extend our appreciation to our classmates and peers for their cooperation, encouragement, and shared ideas, which contributed to the improvement of this system.
 
 Lastly, we acknowledge the learning resources and materials that helped us strengthen our understanding of data structures and programming concepts used in this project.
+
+![C++](https://img.shields.io/badge/Language-C++-blue)
+![Status](https://img.shields.io/badge/Status-Completed-green)
