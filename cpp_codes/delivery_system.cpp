@@ -182,6 +182,7 @@ public:
         }
         return searchNormalOrders(index + 1, target, found);
     }
+
     void search() {
         int target;
         cout << "Enter Order ID: ";
@@ -190,20 +191,20 @@ public:
         Order found;
         
         if (searchPriorityOrders(0, target, found)) {
-            cout << "Order FOUND in PRIORITY QUEUE!" << endl;
+            cout << GREEN << "Order FOUND in PRIORITY QUEUE!" << RESET << endl;
             cout << "ID: " << found.id
                 << " | Name: " << found.name
                 << " | Hours: " << found.hr << endl;
         }
 
         else if (searchNormalOrders(front, target, found)) {
-            cout << "Order FOUND in NORMAL QUEUE!" << endl;
+            cout << GREEN << "Order FOUND in NORMAL QUEUE!" << RESET << endl;
                 cout << "ID: " << found.id
                 << " | Name: " << found.name
                 << " | Hours: " << found.hr << endl;
         }
         else {
-            cout << "Order not found." << endl;
+            cout << RED << "Order not found." << RESET << endl;
         }
     }
 };
