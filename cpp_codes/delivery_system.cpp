@@ -4,6 +4,13 @@ using namespace std;
 
 #define MAX 100
 
+//TEXT COLORS
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define BLUE "\033[34m"
+#define RESET "\033[0m"
+
+
 struct Order
 {
     int id;
@@ -68,7 +75,7 @@ public:
         // Push order into stack (for tracking or undo feature)
         stack[++top] = o;
 
-        cout << "\nOrder Added Successfully!\n";
+        cout << GREEN << "\nOrder Added Successfully!\n" << RESET;
     }
 
     void dispatchOrder()
@@ -76,7 +83,7 @@ public:
         if (pSize > 0)
         {
             // check if there are priority order available
-            cout << "\nDelivered (Priority): " << priority[0].name << endl;
+            cout << RED << "\nDelivered (Priority): " << priority[0].name << RESET << endl;
             // shift all remaining priority orders forward in the array
             for (int i = 0; i < pSize - 1; i++)
             {
@@ -90,24 +97,24 @@ public:
         else if (front <= rear)
         {
             // deliver the order at front of normal queue
-            cout << "\nDelivered (Normal): " << normal[front].name << endl;
+            cout << RED << "\nDelivered (Normal): " << normal[front].name << RESET << endl;
 
             front++;
         }
         else
         {
-            cout << "\nNo orders.\n";
+            cout << RED << "\nNo orders.\n" << RESET;
         }
     }
 
     void undo() {
         if (top == -1) {
-            cout <<"\nNothing to undo.\n";
+            cout << BLUE << "\nNothing to undo.\n" << RESET;
             return;
         }
 
         Order o = stack[top--];
-        cout << "\nUndo Order ID: " << o.id << endl;
+        cout << BLUE << "\nUndo Order ID: " << o.id << RESET << endl;
 
         // Remove from priority queue
         for (int i = 0; i < pSize; i++) {
@@ -116,7 +123,7 @@ public:
                     priority[j] = priority[j + 1];
                 }
                 pSize--;
-                cout << "Removed from Priority Queue.\n";
+                cout << BLUE << "Removed from Priority Queue.\n" << RESET;
                 return;
             }
         }
@@ -128,7 +135,7 @@ public:
                     normal[j] = normal[j + 1];
                 }
                 rear--;
-                cout << "Removed from Normal Queue.\n";
+                cout << BLUE << "Removed from Normal Queue.\n" << RESET;
                 return;
             }
         }
@@ -136,7 +143,7 @@ public:
 
     void display() {
         cout << "\n=========== PRIORITY ORDERS ===========\n";
-        if (pSize == 0) cout << "No priority orders.\n";
+        if (pSize == 0) cout << RED << "No priority orders.\n" << RESET;
 
         for (int i = 0; i < pSize; i++) {
             cout << "[" << priority[i].id << "] "
@@ -144,7 +151,7 @@ public:
         }
 
         cout << "\n=========== NORMAL ORDERS =============\n";
-        if (front > rear) cout << "No normal orders.\n";
+        if (front > rear) cout << RED << "No normal orders.\n" << RESET;
 
         for (int i = front; i <= rear; i++) {
             cout << "[" << normal[i].id << "] "
@@ -165,7 +172,7 @@ public:
         {
             if (priority[i].id == id)
             {
-                cout << "\nFound in PRIORITY QUEUE!\n";
+                cout << GREEN << "\nFound in PRIORITY QUEUE!\n" << RESET;
                 return;
             }
         }
@@ -175,12 +182,12 @@ public:
         {
             if (normal[i].id == id)
             {
-                cout << "\nFound in NORMAL QUEUE!\n";
+                cout << GREEN << "\nFound in NORMAL QUEUE!\n" << RESET;
                 return;
             }
         }
         // If no order ID found
-        cout << "\nOrder not found.\n";
+        cout << RED << "\nOrder not found.\n" << RESET;
     }
 };
 
@@ -191,17 +198,17 @@ int main()
 
     do
     {
-        cout << "\n========================================\n";
-        cout << "  FOOD DELIVERY MANAGEMENT SYSTEM MENU\n";
-        cout << "========================================\n";
+        cout << GREEN << "\n========================================\n" << RESET;
+        cout << GREEN << "  FOOD DELIVERY MANAGEMENT SYSTEM MENU\n" << RESET;
+        cout << GREEN << "========================================\n" << RESET;
 
-        cout << " [1] Add Order\n";
-        cout << " [2] Dispatch Order\n";
-        cout << " [3] Undo Last Order\n";
-        cout << " [4] Display Orders\n";
-        cout << " [5] Search Order\n";
-        cout << " [6] Exit\n";
-        cout << "===========================================\n";
+        cout << GREEN << " [1] Add Order\n" << RESET;
+        cout << GREEN << " [2] Dispatch Order\n" << RESET;
+        cout << GREEN << " [3] Undo Last Order\n" << RESET;
+        cout << GREEN << " [4] Display Orders\n" << RESET;
+        cout << GREEN << " [5] Search Order\n" << RESET;
+        cout << RED << " [6] Exit\n" << RESET;
+        cout << GREEN << "===========================================\n" << RESET;
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -223,10 +230,10 @@ int main()
             f.search();
             break;
         case 6:
-            cout << "\nExiting system...\n";
+            cout << RED << "\nExiting system...\n" << RESET;
             break;
         default:
-            cout << "\nInvalid Choice!\n"; // Error message for wrong input
+            cout << RED << "\nInvalid Choice!\n" << RESET; // Error message for wrong input
         }
     } while (choice != 6); // loop continues until user chooses Exit
 
