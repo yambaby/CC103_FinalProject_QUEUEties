@@ -12,7 +12,7 @@ In real-world food delivery services, managing multiple customer orders at the s
 - 🔍 Difficulty in tracking and searching orders  
 
 ### 💡 Proposed Solution
-This system uses data structures such as Queue, Priority Queue, and Stack to efficiently organize and manage food delivery orders. It prioritizes urgent deliveries, maintains proper order flow, and provides an undo feature for correcting mistakes.
+This system uses data structures such as **Queue, Priority Queue, and Stack** to efficiently organize and manage food delivery orders. It prioritizes urgent deliveries, maintains proper order flow, and provides an undo feature for correcting mistakes.
 
 The system ensures:
 - ⚡ Faster processing of urgent orders  
@@ -28,19 +28,19 @@ The system ensures:
   - Orders with short delivery ```time ≤ 5 hours``` are treated as urgent and are processed first to ensure faster delivery.
 ### 2️. Queue
 #### - ❓ What it is:
-  - A linear First-In, First-Out (FIFO) data structure where the first element added is the first one to be removed.
+  - A linear **First-In, First-Out (FIFO)** data structure where the first element added is the first one to be removed.
 #### - 🤔 Why used:
   - Normal orders ```(> 5 hours)``` are processed in the exact order they were received, ensuring fair and organized handling of non-urgent deliveries.
 ### 3️. Stack
 #### - ❓ What it is:
-- A Last-In, First-Out (LIFO) data structure where the last element added is the first to be removed. 
+- A **Last-In, First-Out (LIFO)** data structure where the last element added is the first to be removed. 
 #### - 🤔 Why used:
 - Enables Undo functionality, allowing the system to remove the most recently added order.
 ### 4️. Array
 #### - ❓ What it is:
 - A fixed-size collection of elements stored in contiguous memory. 
 #### - 🤔 Why used:
-- Used to implement Queue, Stack, and Priority Queue due to simplicity fast access, and efficient handling of data in this system.
+- Used to implement **Queue, Stack, and Priority Queue** due to simplicity fast access, and efficient handling of data in this system.
 
 ## ⚙️ Algorithm Explanation
 
@@ -63,8 +63,8 @@ The ```Order``` structure stores the details of each order:
 ```name``` → Customer name
 ```hr (hours)``` → Delivery time
 
-📌 If hr ≤ 5 → ```Priority Order```
-📌 If hr > 5 → ```Normal Order```
+📌 If ```hr ≤ 5``` → **Priority Order**
+📌 If ```hr > 5``` → **Normal Order**
 
 
 ### ➕ ```addOrder()```
@@ -108,11 +108,11 @@ void addOrder() {
     }
 
 ```
-- Input order details (ID, Name, Hours)  
-- If **hours ≤ 5:**  
+- Input order details ```(ID, Name, Hours)```  
+- **If** ```hours ≤ 5:```  
   - Add to **Priority Queue** array  
   - Insert then sort Priority Queue using nested loops based on ```hr``` (shortest time first)  
-- Else:  
+- **Else**:  
   - Add order to **Normal Queue** (FIFO using rear++)  
   - Push order to **Stack** (for undo functionality)
 
@@ -205,40 +205,91 @@ void dispatchOrder()
 
 ### 🔍 Search Order
 ```cpp
-void search()
-    {
-        int id;
-        cout << "Enter ID to search: ";
-        cin >> id;
-
-        // Find order ID in Priority Queue first
-        for (int i = 0; i < pSize; i++)
-        {
-            if (priority[i].id == id)
-            {
-                cout << "\nFound in PRIORITY QUEUE!\n";
-                return;
-            }
-        }
-
-        // If not found, find order ID in Normal Queue
-        for (int i = front; i <= rear; i++)
-        {
-            if (normal[i].id == id)
-            {
-                cout << "\nFound in NORMAL QUEUE!\n";
-                return;
-            }
-        }
-        // If no order ID found
-        cout << "\nOrder not found.\n";
+bool searchPriorityOrders(int index, int target, Order& found) {
+    
+    // Base case: reached end of priority queue (not found)
+    if (index >= pSize) {
+        return false;
     }
-};
+
+    // If current order matches target ID
+    if (priority[index].id == target) {
+        found = priority[index]; // store the found order
+        return true;
+    }
+
+    // Recursive call: check next index
+    return searchPriorityOrders(index + 1, target, found);
+}
 ```
-- Input Order ```ID```
-- Search in Priority Queue from ```index 0``` to ```pSize-1```
-- Display whether the order is found in Priority or Normal Queue
-- If not found in both, display ```"Order not found"```  
+- This function **recursively searches** the priority queue.
+- It starts from ```index 0``` and checks each order one by one.
+- If the order ```ID``` matches, it stores the result and returns ```true```.
+- If it reaches the end without finding it, it returns ```false```.
+```cpp
+
+```cpp
+bool searchNormalOrders(int index, int target, Order& found) {
+    
+    // Base case: reached end of normal queue (not found)
+    if (index > rear) {
+        return false;
+    }
+
+    // If current order matches target ID
+    if (normal[index].id == target) {
+        found = normal[index]; // store the found order
+        return true;
+    }
+
+    // Recursive call: check next element
+    return searchNormalOrders(index + 1, target, found);
+}
+```
+- Works the same way as the priority search.
+- Starts from ```front``` and goes until ```rear```.
+- Uses recursion to move through the queue.
+- Returns ```true``` if found, otherwise ```false```.
+
+```cpp
+void search() {
+    int target;
+
+    // Ask user for Order ID
+    cout << "Enter Order ID: ";
+    cin >> target;
+
+    Order found; // variable to store result
+
+    // First, search in priority queue
+    if (searchPriorityOrders(0, target, found)) {
+        cout << GREEN << "Order FOUND in PRIORITY QUEUE!" << RESET << endl;
+        cout << "ID: " << found.id
+             << " | Name: " << found.name
+             << " | Hours: " << found.hr << endl;
+    }
+
+    // If not found, search in normal queue
+    else if (searchNormalOrders(front, target, found)) {
+        cout << GREEN << "Order FOUND in NORMAL QUEUE!" << RESET << endl;
+        cout << "ID: " << found.id
+             << " | Name: " << found.name
+             << " | Hours: " << found.hr << endl;
+    }
+
+    // If not found in both queues
+    else {
+        cout << RED << "Order not found." << RESET << endl;
+    }
+}
+```
+- This is the main search handler.
+- Takes user input ```(Order ID)```.
+- First checks the**priority queue** (higher importance).
+- If not found, checks the **normal queue**.
+- Displays:
+- Order details if ```found```
+- Error message if ```not found```
 
 ### 📊 Display Orders
 ```cpp
