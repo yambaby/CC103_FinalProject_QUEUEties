@@ -116,7 +116,7 @@ void addOrder() {
   - Add order to **Normal Queue** (FIFO using rear++)  
   - Push order to **Stack** (for undo functionality)
 
-### 🚚 Dispatch Order
+### 🚚 ```Dispatch Order```
 
 ```cpp
 void dispatchOrder()
@@ -158,7 +158,7 @@ void dispatchOrder()
 - **Else**:
    - Display ```"No orders"```  
 
-### ↩️ Undo Order
+### ↩️ ```Undo Order```
 ```cpp
  void undo() {
 //check if stack is empty 
@@ -203,7 +203,7 @@ void dispatchOrder()
   - If found, remove it by shifting elements left and decrease ```rear```
 - Display confirmation message for removal  
 
-### 🔍 Search Order
+### 🔍 ```Search Order```
 ```cpp
 bool searchPriorityOrders(int index, int target, Order& found) {
     
@@ -226,7 +226,6 @@ bool searchPriorityOrders(int index, int target, Order& found) {
 - It starts from ```index 0``` and checks each order one by one.
 - If the order ```ID``` matches, it stores the result and returns ```true```.
 - If it reaches the end without finding it, it returns ```false```.
-```cpp
 
 ```cpp
 bool searchNormalOrders(int index, int target, Order& found) {
@@ -291,7 +290,7 @@ void search() {
 - Order details if ```found```
 - Error message if ```not found```
 
-### 📊 Display Orders
+### 📊```Display Orders```
 ```cpp
  void display() {
         cout << "\n=========== PRIORITY ORDERS ===========\n";
@@ -323,7 +322,7 @@ void search() {
 - Display all elements in Normal Queue ```(from front to rear)```
 - Show order ```ID```, ```name```, and ```hours``` for each  
 
-### 🚪 Exit System
+### 🚪 ```Exit System```
 - User selects option ```[6] Exit```
 - Program executes case 6 and displays ```"Exiting system..."```
 - Loop condition ```while(choice != 6)``` ends execution
